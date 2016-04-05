@@ -1,0 +1,6 @@
+framework module Pods_SociaLol {
+  umbrella header "Pods-SociaLol-umbrella.h"
+
+  export *
+  module * { export * }
+}

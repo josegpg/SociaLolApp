@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29B24C3AE6722808A6EBF53A /* Pods_SociaLol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F0930422E8C19E915266F9 /* Pods_SociaLol.framework */; };
+		D110F9911C9A17D7002C8CA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9901C9A17D7002C8CA3 /* AppDelegate.swift */; };
+		D110F9931C9A17D7002C8CA3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9921C9A17D7002C8CA3 /* SearchViewController.swift */; };
+		D110F9961C9A17D7002C8CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D110F9941C9A17D7002C8CA3 /* Main.storyboard */; };
+		D110F9991C9A17D7002C8CA3 /* SociaLol.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D110F9971C9A17D7002C8CA3 /* SociaLol.xcdatamodeld */; };
+		D110F99B1C9A17D7002C8CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D110F99A1C9A17D7002C8CA3 /* Assets.xcassets */; };
+		D110F99E1C9A17D7002C8CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D110F99C1C9A17D7002C8CA3 /* LaunchScreen.storyboard */; };
+		D110F9A91C9A17D8002C8CA3 /* SociaLolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9A81C9A17D8002C8CA3 /* SociaLolTests.swift */; };
+		D110F9B41C9A17D8002C8CA3 /* SociaLolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9B31C9A17D8002C8CA3 /* SociaLolUITests.swift */; };
+		D110F9C61C9A31D7002C8CA3 /* LoL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9C51C9A31D7002C8CA3 /* LoL.swift */; };
+		D110F9C81C9BA9C8002C8CA3 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9C71C9BA9C8002C8CA3 /* CoreDataStackManager.swift */; };
+		D110F9CA1C9BAAC0002C8CA3 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9C91C9BAAC0002C8CA3 /* SearchResultsViewController.swift */; };
+		D110F9CC1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9CB1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift */; };
+		D110F9CE1C9CC31A002C8CA3 /* RiotAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9CD1C9CC31A002C8CA3 /* RiotAPIClient.swift */; };
+		D110F9D01C9CFD1A002C8CA3 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9CF1C9CFD1A002C8CA3 /* Champion.swift */; };
+		D110F9D21C9D0123002C8CA3 /* Passive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9D11C9D0123002C8CA3 /* Passive.swift */; };
+		D110F9D41C9D012F002C8CA3 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9D31C9D012F002C8CA3 /* Spell.swift */; };
+		D110F9D91CA6383D002C8CA3 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9D81CA6383D002C8CA3 /* Summoner.swift */; };
+		D110F9DC1CA652B7002C8CA3 /* ChampionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9DB1CA652B7002C8CA3 /* ChampionTableViewCell.swift */; };
+		D110F9DE1CA652CC002C8CA3 /* SummonerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9DD1CA652CC002C8CA3 /* SummonerTableViewCell.swift */; };
+		D110F9E01CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */; };
+		D157C84F1CA664C400059F8D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157C84E1CA664C400059F8D /* ImageCache.swift */; };
+		D17A777C1CAF7E550078B9B2 /* TopChampionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */; };
+		D17A777E1CAF82E80078B9B2 /* SummonerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */; };
+		D17A77801CB03C120078B9B2 /* RecentMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A777F1CB03C120078B9B2 /* RecentMatch.swift */; };
+		D17A77821CB03C300078B9B2 /* RankedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77811CB03C300078B9B2 /* RankedInfo.swift */; };
+		D17A77841CB03C450078B9B2 /* TopChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77831CB03C450078B9B2 /* TopChampion.swift */; };
+		D17A77861CB099A10078B9B2 /* LeagueInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77851CB099A10078B9B2 /* LeagueInfo.swift */; };
+		D17A77881CB369AF0078B9B2 /* RecentMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77871CB369AF0078B9B2 /* RecentMatchView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D110F9A51C9A17D8002C8CA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D110F9851C9A17D7002C8CA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D110F98C1C9A17D7002C8CA3;
+			remoteInfo = SociaLol;
+		};
+		D110F9B01C9A17D8002C8CA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D110F9851C9A17D7002C8CA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D110F98C1C9A17D7002C8CA3;
+			remoteInfo = SociaLol;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		684B6AC6149DF3A81F716F1E /* Pods-SociaLol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SociaLol.release.xcconfig"; path = "Pods/Target Support Files/Pods-SociaLol/Pods-SociaLol.release.xcconfig"; sourceTree = "<group>"; };
+		A2F0930422E8C19E915266F9 /* Pods_SociaLol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SociaLol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD66DD7EFA2984723A7BE9FF /* Pods-SociaLol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SociaLol.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SociaLol/Pods-SociaLol.debug.xcconfig"; sourceTree = "<group>"; };
+		D110F98D1C9A17D7002C8CA3 /* SociaLol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SociaLol.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D110F9901C9A17D7002C8CA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D110F9921C9A17D7002C8CA3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D110F9951C9A17D7002C8CA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D110F9981C9A17D7002C8CA3 /* SociaLol.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SociaLol.xcdatamodel; sourceTree = "<group>"; };
+		D110F99A1C9A17D7002C8CA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D110F99D1C9A17D7002C8CA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D110F99F1C9A17D7002C8CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D110F9A41C9A17D8002C8CA3 /* SociaLolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SociaLolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D110F9A81C9A17D8002C8CA3 /* SociaLolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SociaLolTests.swift; sourceTree = "<group>"; };
+		D110F9AA1C9A17D8002C8CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D110F9AF1C9A17D8002C8CA3 /* SociaLolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SociaLolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D110F9B31C9A17D8002C8CA3 /* SociaLolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SociaLolUITests.swift; sourceTree = "<group>"; };
+		D110F9B51C9A17D8002C8CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D110F9C51C9A31D7002C8CA3 /* LoL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoL.swift; sourceTree = "<group>"; };
+		D110F9C71C9BA9C8002C8CA3 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		D110F9C91C9BAAC0002C8CA3 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		D110F9CB1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		D110F9CD1C9CC31A002C8CA3 /* RiotAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiotAPIClient.swift; sourceTree = "<group>"; };
+		D110F9CF1C9CFD1A002C8CA3 /* Champion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
+		D110F9D11C9D0123002C8CA3 /* Passive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passive.swift; sourceTree = "<group>"; };
+		D110F9D31C9D012F002C8CA3 /* Spell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
+		D110F9D81CA6383D002C8CA3 /* Summoner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
+		D110F9DB1CA652B7002C8CA3 /* ChampionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionTableViewCell.swift; sourceTree = "<group>"; };
+		D110F9DD1CA652CC002C8CA3 /* SummonerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerTableViewCell.swift; sourceTree = "<group>"; };
+		D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCancelingCollectionViewCell.swift; sourceTree = "<group>"; };
+		D157C84E1CA664C400059F8D /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopChampionSummaryView.swift; sourceTree = "<group>"; };
+		D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerProfileViewController.swift; sourceTree = "<group>"; };
+		D17A777F1CB03C120078B9B2 /* RecentMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentMatch.swift; sourceTree = "<group>"; };
+		D17A77811CB03C300078B9B2 /* RankedInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankedInfo.swift; sourceTree = "<group>"; };
+		D17A77831CB03C450078B9B2 /* TopChampion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopChampion.swift; sourceTree = "<group>"; };
+		D17A77851CB099A10078B9B2 /* LeagueInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeagueInfo.swift; sourceTree = "<group>"; };
+		D17A77871CB369AF0078B9B2 /* RecentMatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentMatchView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D110F98A1C9A17D7002C8CA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29B24C3AE6722808A6EBF53A /* Pods_SociaLol.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D110F9A11C9A17D8002C8CA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D110F9AC1C9A17D8002C8CA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2137E1B811EC66087521776F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD66DD7EFA2984723A7BE9FF /* Pods-SociaLol.debug.xcconfig */,
+				684B6AC6149DF3A81F716F1E /* Pods-SociaLol.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D110F9841C9A17D7002C8CA3 = {
+			isa = PBXGroup;
+			children = (
+				D110F98F1C9A17D7002C8CA3 /* SociaLol */,
+				D110F9A71C9A17D8002C8CA3 /* SociaLolTests */,
+				D110F9B21C9A17D8002C8CA3 /* SociaLolUITests */,
+				D110F98E1C9A17D7002C8CA3 /* Products */,
+				2137E1B811EC66087521776F /* Pods */,
+				E0CA173881A5D1C17E6E75CA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D110F98E1C9A17D7002C8CA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D110F98D1C9A17D7002C8CA3 /* SociaLol.app */,
+				D110F9A41C9A17D8002C8CA3 /* SociaLolTests.xctest */,
+				D110F9AF1C9A17D8002C8CA3 /* SociaLolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D110F98F1C9A17D7002C8CA3 /* SociaLol */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9C31C9A2742002C8CA3 /* Controllers */,
+				D110F9C21C9A273D002C8CA3 /* Views */,
+				D110F9C11C9A270F002C8CA3 /* Models */,
+				D110F9901C9A17D7002C8CA3 /* AppDelegate.swift */,
+				D110F99F1C9A17D7002C8CA3 /* Info.plist */,
+			);
+			path = SociaLol;
+			sourceTree = "<group>";
+		};
+		D110F9A71C9A17D8002C8CA3 /* SociaLolTests */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9A81C9A17D8002C8CA3 /* SociaLolTests.swift */,
+				D110F9AA1C9A17D8002C8CA3 /* Info.plist */,
+			);
+			path = SociaLolTests;
+			sourceTree = "<group>";
+		};
+		D110F9B21C9A17D8002C8CA3 /* SociaLolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9B31C9A17D8002C8CA3 /* SociaLolUITests.swift */,
+				D110F9B51C9A17D8002C8CA3 /* Info.plist */,
+			);
+			path = SociaLolUITests;
+			sourceTree = "<group>";
+		};
+		D110F9C11C9A270F002C8CA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9D51C9D0F36002C8CA3 /* CoreData */,
+				D110F9C41C9A31BD002C8CA3 /* APIClient */,
+				D110F9DA1CA63975002C8CA3 /* Entities */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D110F9C21C9A273D002C8CA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D110F99A1C9A17D7002C8CA3 /* Assets.xcassets */,
+				D110F9941C9A17D7002C8CA3 /* Main.storyboard */,
+				D110F99C1C9A17D7002C8CA3 /* LaunchScreen.storyboard */,
+				D110F9DB1CA652B7002C8CA3 /* ChampionTableViewCell.swift */,
+				D110F9DD1CA652CC002C8CA3 /* SummonerTableViewCell.swift */,
+				D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */,
+				D110F9CB1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift */,
+				D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */,
+				D17A77871CB369AF0078B9B2 /* RecentMatchView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D110F9C31C9A2742002C8CA3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9921C9A17D7002C8CA3 /* SearchViewController.swift */,
+				D110F9C91C9BAAC0002C8CA3 /* SearchResultsViewController.swift */,
+				D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D110F9C41C9A31BD002C8CA3 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9C51C9A31D7002C8CA3 /* LoL.swift */,
+				D110F9CD1C9CC31A002C8CA3 /* RiotAPIClient.swift */,
+				D157C84E1CA664C400059F8D /* ImageCache.swift */,
+			);
+			name = APIClient;
+			sourceTree = "<group>";
+		};
+		D110F9D51C9D0F36002C8CA3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9C71C9BA9C8002C8CA3 /* CoreDataStackManager.swift */,
+				D110F9971C9A17D7002C8CA3 /* SociaLol.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		D110F9DA1CA63975002C8CA3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D110F9CF1C9CFD1A002C8CA3 /* Champion.swift */,
+				D110F9D11C9D0123002C8CA3 /* Passive.swift */,
+				D110F9D31C9D012F002C8CA3 /* Spell.swift */,
+				D110F9D81CA6383D002C8CA3 /* Summoner.swift */,
+				D17A777F1CB03C120078B9B2 /* RecentMatch.swift */,
+				D17A77811CB03C300078B9B2 /* RankedInfo.swift */,
+				D17A77831CB03C450078B9B2 /* TopChampion.swift */,
+				D17A77851CB099A10078B9B2 /* LeagueInfo.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		E0CA173881A5D1C17E6E75CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2F0930422E8C19E915266F9 /* Pods_SociaLol.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D110F98C1C9A17D7002C8CA3 /* SociaLol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D110F9B81C9A17D8002C8CA3 /* Build configuration list for PBXNativeTarget "SociaLol" */;
+			buildPhases = (
+				9BEC3B9213C77A490BC165DD /* Check Pods Manifest.lock */,
+				D110F9891C9A17D7002C8CA3 /* Sources */,
+				D110F98A1C9A17D7002C8CA3 /* Frameworks */,
+				D110F98B1C9A17D7002C8CA3 /* Resources */,
+				F4382D32CB0F068134841916 /* Embed Pods Frameworks */,
+				4976F329FB7CDD19F7BB77FB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SociaLol;
+			productName = SociaLol;
+			productReference = D110F98D1C9A17D7002C8CA3 /* SociaLol.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D110F9A31C9A17D8002C8CA3 /* SociaLolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D110F9BB1C9A17D8002C8CA3 /* Build configuration list for PBXNativeTarget "SociaLolTests" */;
+			buildPhases = (
+				D110F9A01C9A17D8002C8CA3 /* Sources */,
+				D110F9A11C9A17D8002C8CA3 /* Frameworks */,
+				D110F9A21C9A17D8002C8CA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D110F9A61C9A17D8002C8CA3 /* PBXTargetDependency */,
+			);
+			name = SociaLolTests;
+			productName = SociaLolTests;
+			productReference = D110F9A41C9A17D8002C8CA3 /* SociaLolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D110F9AE1C9A17D8002C8CA3 /* SociaLolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D110F9BE1C9A17D8002C8CA3 /* Build configuration list for PBXNativeTarget "SociaLolUITests" */;
+			buildPhases = (
+				D110F9AB1C9A17D8002C8CA3 /* Sources */,
+				D110F9AC1C9A17D8002C8CA3 /* Frameworks */,
+				D110F9AD1C9A17D8002C8CA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D110F9B11C9A17D8002C8CA3 /* PBXTargetDependency */,
+			);
+			name = SociaLolUITests;
+			productName = SociaLolUITests;
+			productReference = D110F9AF1C9A17D8002C8CA3 /* SociaLolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D110F9851C9A17D7002C8CA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "José Piñero";
+				TargetAttributes = {
+					D110F98C1C9A17D7002C8CA3 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					D110F9A31C9A17D8002C8CA3 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = D110F98C1C9A17D7002C8CA3;
+					};
+					D110F9AE1C9A17D8002C8CA3 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = D110F98C1C9A17D7002C8CA3;
+					};
+				};
+			};
+			buildConfigurationList = D110F9881C9A17D7002C8CA3 /* Build configuration list for PBXProject "SociaLol" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D110F9841C9A17D7002C8CA3;
+			productRefGroup = D110F98E1C9A17D7002C8CA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D110F98C1C9A17D7002C8CA3 /* SociaLol */,
+				D110F9A31C9A17D8002C8CA3 /* SociaLolTests */,
+				D110F9AE1C9A17D8002C8CA3 /* SociaLolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D110F98B1C9A17D7002C8CA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D110F99E1C9A17D7002C8CA3 /* LaunchScreen.storyboard in Resources */,
+				D110F99B1C9A17D7002C8CA3 /* Assets.xcassets in Resources */,
+				D110F9961C9A17D7002C8CA3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D110F9A21C9A17D8002C8CA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D110F9AD1C9A17D8002C8CA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4976F329FB7CDD19F7BB77FB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SociaLol/Pods-SociaLol-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BEC3B9213C77A490BC165DD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F4382D32CB0F068134841916 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SociaLol/Pods-SociaLol-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D110F9891C9A17D7002C8CA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D17A77821CB03C300078B9B2 /* RankedInfo.swift in Sources */,
+				D110F9DC1CA652B7002C8CA3 /* ChampionTableViewCell.swift in Sources */,
+				D17A77841CB03C450078B9B2 /* TopChampion.swift in Sources */,
+				D110F9D91CA6383D002C8CA3 /* Summoner.swift in Sources */,
+				D157C84F1CA664C400059F8D /* ImageCache.swift in Sources */,
+				D110F9931C9A17D7002C8CA3 /* SearchViewController.swift in Sources */,
+				D110F9D21C9D0123002C8CA3 /* Passive.swift in Sources */,
+				D110F9CA1C9BAAC0002C8CA3 /* SearchResultsViewController.swift in Sources */,
+				D110F9911C9A17D7002C8CA3 /* AppDelegate.swift in Sources */,
+				D110F9D41C9D012F002C8CA3 /* Spell.swift in Sources */,
+				D110F9991C9A17D7002C8CA3 /* SociaLol.xcdatamodeld in Sources */,
+				D17A77801CB03C120078B9B2 /* RecentMatch.swift in Sources */,
+				D110F9C81C9BA9C8002C8CA3 /* CoreDataStackManager.swift in Sources */,
+				D17A777C1CAF7E550078B9B2 /* TopChampionSummaryView.swift in Sources */,
+				D110F9CE1C9CC31A002C8CA3 /* RiotAPIClient.swift in Sources */,
+				D110F9CC1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift in Sources */,
+				D17A777E1CAF82E80078B9B2 /* SummonerProfileViewController.swift in Sources */,
+				D110F9C61C9A31D7002C8CA3 /* LoL.swift in Sources */,
+				D110F9D01C9CFD1A002C8CA3 /* Champion.swift in Sources */,
+				D110F9E01CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift in Sources */,
+				D17A77881CB369AF0078B9B2 /* RecentMatchView.swift in Sources */,
+				D17A77861CB099A10078B9B2 /* LeagueInfo.swift in Sources */,
+				D110F9DE1CA652CC002C8CA3 /* SummonerTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D110F9A01C9A17D8002C8CA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D110F9A91C9A17D8002C8CA3 /* SociaLolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D110F9AB1C9A17D8002C8CA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D110F9B41C9A17D8002C8CA3 /* SociaLolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D110F9A61C9A17D8002C8CA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D110F98C1C9A17D7002C8CA3 /* SociaLol */;
+			targetProxy = D110F9A51C9A17D8002C8CA3 /* PBXContainerItemProxy */;
+		};
+		D110F9B11C9A17D8002C8CA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D110F98C1C9A17D7002C8CA3 /* SociaLol */;
+			targetProxy = D110F9B01C9A17D8002C8CA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D110F9941C9A17D7002C8CA3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D110F9951C9A17D7002C8CA3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D110F99C1C9A17D7002C8CA3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D110F99D1C9A17D7002C8CA3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D110F9B61C9A17D8002C8CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D110F9B71C9A17D8002C8CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D110F9B91C9A17D8002C8CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD66DD7EFA2984723A7BE9FF /* Pods-SociaLol.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SociaLol/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josepinero.SociaLol;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D110F9BA1C9A17D8002C8CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 684B6AC6149DF3A81F716F1E /* Pods-SociaLol.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SociaLol/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josepinero.SociaLol;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D110F9BC1C9A17D8002C8CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SociaLolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josepinero.SociaLolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SociaLol.app/SociaLol";
+			};
+			name = Debug;
+		};
+		D110F9BD1C9A17D8002C8CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SociaLolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josepinero.SociaLolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SociaLol.app/SociaLol";
+			};
+			name = Release;
+		};
+		D110F9BF1C9A17D8002C8CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SociaLolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josepinero.SociaLolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SociaLol;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D110F9C01C9A17D8002C8CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SociaLolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josepinero.SociaLolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SociaLol;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D110F9881C9A17D7002C8CA3 /* Build configuration list for PBXProject "SociaLol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D110F9B61C9A17D8002C8CA3 /* Debug */,
+				D110F9B71C9A17D8002C8CA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D110F9B81C9A17D8002C8CA3 /* Build configuration list for PBXNativeTarget "SociaLol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D110F9B91C9A17D8002C8CA3 /* Debug */,
+				D110F9BA1C9A17D8002C8CA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D110F9BB1C9A17D8002C8CA3 /* Build configuration list for PBXNativeTarget "SociaLolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D110F9BC1C9A17D8002C8CA3 /* Debug */,
+				D110F9BD1C9A17D8002C8CA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D110F9BE1C9A17D8002C8CA3 /* Build configuration list for PBXNativeTarget "SociaLolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D110F9BF1C9A17D8002C8CA3 /* Debug */,
+				D110F9C01C9A17D8002C8CA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D110F9971C9A17D7002C8CA3 /* SociaLol.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D110F9981C9A17D7002C8CA3 /* SociaLol.xcdatamodel */,
+			);
+			currentVersion = D110F9981C9A17D7002C8CA3 /* SociaLol.xcdatamodel */;
+			path = SociaLol.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D110F9851C9A17D7002C8CA3 /* Project object */;
+}

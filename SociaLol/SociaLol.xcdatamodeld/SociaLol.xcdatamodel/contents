@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
+    <entity name="Champion" representedClassName=".Champion" syncable="YES">
+        <attribute name="allyTips" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="attack" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="blurb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="defense" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="difficulty" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="enemyTips" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="magic" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="passive" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Passive" inverseName="champion" inverseEntity="Passive" syncable="YES"/>
+        <relationship name="spells" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Spell" inverseName="champion" inverseEntity="Spell" syncable="YES"/>
+    </entity>
+    <entity name="Passive" representedClassName=".Passive" syncable="YES">
+        <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="champion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Champion" inverseName="passive" inverseEntity="Champion" syncable="YES"/>
+    </entity>
+    <entity name="Spell" representedClassName=".Spell" syncable="YES">
+        <attribute name="cooldown" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="champion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Champion" inverseName="spells" inverseEntity="Champion" syncable="YES"/>
+    </entity>
+    <entity name="Summoner" representedClassName=".Summoner" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Champion" positionX="-63" positionY="-18" width="128" height="285"/>
+        <element name="Passive" positionX="-54" positionY="99" width="128" height="120"/>
+        <element name="Spell" positionX="-36" positionY="108" width="128" height="135"/>
+        <element name="Summoner" positionX="-45" positionY="99" width="128" height="120"/>
+    </elements>
+</model>
