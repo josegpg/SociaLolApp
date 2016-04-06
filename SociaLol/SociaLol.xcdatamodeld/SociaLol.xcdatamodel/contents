@@ -18,6 +18,15 @@
         <relationship name="passive" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Passive" inverseName="champion" inverseEntity="Passive" syncable="YES"/>
         <relationship name="spells" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Spell" inverseName="champion" inverseEntity="Spell" syncable="YES"/>
     </entity>
+    <entity name="Item" representedClassName=".Item" syncable="YES">
+        <attribute name="cost" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemPlainDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Passive" representedClassName=".Passive" syncable="YES">
         <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageGroup" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,10 +49,20 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="SummonerSpell" representedClassName=".SummonerSpell" syncable="YES">
+        <attribute name="cooldown" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="spellDescription" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Champion" positionX="-63" positionY="-18" width="128" height="285"/>
         <element name="Passive" positionX="-54" positionY="99" width="128" height="120"/>
         <element name="Spell" positionX="-36" positionY="108" width="128" height="135"/>
         <element name="Summoner" positionX="-45" positionY="99" width="128" height="120"/>
+        <element name="Item" positionX="-45" positionY="108" width="128" height="150"/>
+        <element name="SummonerSpell" positionX="-36" positionY="117" width="128" height="135"/>
     </elements>
 </model>

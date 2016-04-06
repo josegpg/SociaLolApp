@@ -156,11 +156,11 @@ class SummonerProfileViewController: UIViewController {
         averageGold = !recentMatches.isEmpty ? round(averageGold/recentMatches.count.toDouble) : 0
         averageMinions = !recentMatches.isEmpty ? round(averageMinions/recentMatches.count.toDouble) : 0
         wins = !recentMatches.isEmpty ? round(wins/recentMatches.count.toDouble * 100) : 0
-        
+
         killsLabel.text = "\(averageKills.toInt)"
         deathsLabel.text = "\(averageDeaths.toInt)"
         assistsLabel.text = "\(averageAssists.toInt)"
-        goldLabel.text = "\(averageGold.toInt)"
+        goldLabel.text = formatGold(averageGold)
         minionsLabel.text = "\(averageMinions.toInt)"
         winrateLabel.text = "\(wins.toInt)%"
     }
@@ -206,4 +206,37 @@ class SummonerProfileViewController: UIViewController {
         navigationController?.popViewControllerAnimated(true)
     }
     
+}
+
+extension SummonerProfileViewController: UITableViewDelegate {
+    
+}
+
+extension SummonerProfileViewController: UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recentMatches.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("matchCell") as! RecentMatchTableViewCell
+        
+        cell.setUp(recentMatches[indexPath.row])
+        
+        return cell
+    }
+}
+
+public func formatGold(var gold: Double) -> String {
+    if gold > 1000 {
+        gold = gold/1000.0
+        
+        return String(format: "%.1fK", gold)
+    }
+    
+    return gold.toString
 }

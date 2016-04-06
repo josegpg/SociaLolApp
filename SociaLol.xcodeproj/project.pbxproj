@@ -35,7 +35,9 @@
 		D17A77821CB03C300078B9B2 /* RankedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77811CB03C300078B9B2 /* RankedInfo.swift */; };
 		D17A77841CB03C450078B9B2 /* TopChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77831CB03C450078B9B2 /* TopChampion.swift */; };
 		D17A77861CB099A10078B9B2 /* LeagueInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77851CB099A10078B9B2 /* LeagueInfo.swift */; };
-		D17A77881CB369AF0078B9B2 /* RecentMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77871CB369AF0078B9B2 /* RecentMatchView.swift */; };
+		D17A77881CB369AF0078B9B2 /* RecentMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77871CB369AF0078B9B2 /* RecentMatchTableViewCell.swift */; };
+		D1F5E98D1CB4BDE300F6172E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F5E98C1CB4BDE300F6172E /* Item.swift */; };
+		D1F5E98F1CB4CAAC00F6172E /* SummonerSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F5E98E1CB4CAAC00F6172E /* SummonerSpell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +94,9 @@
 		D17A77811CB03C300078B9B2 /* RankedInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankedInfo.swift; sourceTree = "<group>"; };
 		D17A77831CB03C450078B9B2 /* TopChampion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopChampion.swift; sourceTree = "<group>"; };
 		D17A77851CB099A10078B9B2 /* LeagueInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeagueInfo.swift; sourceTree = "<group>"; };
-		D17A77871CB369AF0078B9B2 /* RecentMatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentMatchView.swift; sourceTree = "<group>"; };
+		D17A77871CB369AF0078B9B2 /* RecentMatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentMatchTableViewCell.swift; sourceTree = "<group>"; };
+		D1F5E98C1CB4BDE300F6172E /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D1F5E98E1CB4CAAC00F6172E /* SummonerSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerSpell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,11 +203,11 @@
 				D110F9941C9A17D7002C8CA3 /* Main.storyboard */,
 				D110F99C1C9A17D7002C8CA3 /* LaunchScreen.storyboard */,
 				D110F9DB1CA652B7002C8CA3 /* ChampionTableViewCell.swift */,
+				D17A77871CB369AF0078B9B2 /* RecentMatchTableViewCell.swift */,
 				D110F9DD1CA652CC002C8CA3 /* SummonerTableViewCell.swift */,
 				D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */,
-				D110F9CB1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift */,
 				D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */,
-				D17A77871CB369AF0078B9B2 /* RecentMatchView.swift */,
+				D110F9CB1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -241,9 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				D110F9CF1C9CFD1A002C8CA3 /* Champion.swift */,
+				D1F5E98C1CB4BDE300F6172E /* Item.swift */,
 				D110F9D11C9D0123002C8CA3 /* Passive.swift */,
 				D110F9D31C9D012F002C8CA3 /* Spell.swift */,
 				D110F9D81CA6383D002C8CA3 /* Summoner.swift */,
+				D1F5E98E1CB4CAAC00F6172E /* SummonerSpell.swift */,
 				D17A777F1CB03C120078B9B2 /* RecentMatch.swift */,
 				D17A77811CB03C300078B9B2 /* RankedInfo.swift */,
 				D17A77831CB03C450078B9B2 /* TopChampion.swift */,
@@ -445,7 +451,9 @@
 				D17A77821CB03C300078B9B2 /* RankedInfo.swift in Sources */,
 				D110F9DC1CA652B7002C8CA3 /* ChampionTableViewCell.swift in Sources */,
 				D17A77841CB03C450078B9B2 /* TopChampion.swift in Sources */,
+				D1F5E98F1CB4CAAC00F6172E /* SummonerSpell.swift in Sources */,
 				D110F9D91CA6383D002C8CA3 /* Summoner.swift in Sources */,
+				D1F5E98D1CB4BDE300F6172E /* Item.swift in Sources */,
 				D157C84F1CA664C400059F8D /* ImageCache.swift in Sources */,
 				D110F9931C9A17D7002C8CA3 /* SearchViewController.swift in Sources */,
 				D110F9D21C9D0123002C8CA3 /* Passive.swift in Sources */,
@@ -462,7 +470,7 @@
 				D110F9C61C9A31D7002C8CA3 /* LoL.swift in Sources */,
 				D110F9D01C9CFD1A002C8CA3 /* Champion.swift in Sources */,
 				D110F9E01CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift in Sources */,
-				D17A77881CB369AF0078B9B2 /* RecentMatchView.swift in Sources */,
+				D17A77881CB369AF0078B9B2 /* RecentMatchTableViewCell.swift in Sources */,
 				D17A77861CB099A10078B9B2 /* LeagueInfo.swift in Sources */,
 				D110F9DE1CA652CC002C8CA3 /* SummonerTableViewCell.swift in Sources */,
 			);

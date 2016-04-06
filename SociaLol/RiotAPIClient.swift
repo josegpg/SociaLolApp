@@ -17,6 +17,9 @@ class RiotAPIClient: NSObject {
     let apiKey = "87785ede-42ac-4dd3-b62c-a6b070a40940"
     
     var allChampions: [Champion] = []
+    var allItems: [Item] = []
+    var allSummonerSpells: [SummonerSpell] = []
+    
     var temporaryContext: NSManagedObjectContext!
     
     lazy var sharedContext: NSManagedObjectContext = {
@@ -43,6 +46,7 @@ class RiotAPIClient: NSObject {
         
         // Fetch stored champions
         allChampions = fetchAllStoredChampions()
+        allItems = fetchAllStoredItems()
         
         // Set the temporary context
         temporaryContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
@@ -56,6 +60,26 @@ class RiotAPIClient: NSObject {
         } catch let error as NSError {
             print("Error in fetchAllChampions(): \(error)")
             return [Champion]()
+        }
+    }
+    
+    func fetchAllStoredItems() -> [Item] {
+        let fetchRequest = NSFetchRequest(entityName: "Item")
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Item]
+        } catch let error as NSError {
+            print("Error in fetchAllItems(): \(error)")
+            return [Item]()
+        }
+    }
+    
+    func fetchAllStoredSummonerSpells() -> [SummonerSpell] {
+        let fetchRequest = NSFetchRequest(entityName: "SummonerSpell")
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [SummonerSpell]
+        } catch let error as NSError {
+            print("Error in fetchAllSummonerSpells(): \(error)")
+            return [SummonerSpell]()
         }
     }
     
@@ -90,6 +114,19 @@ class RiotAPIClient: NSObject {
         return allChampions.filter { champion in
             return champion.id == championId
         }.first!
+    }
+    
+    func searchItem(itemId: Int) -> Item? {
+        if itemId == 0 {
+            return nil
+        }
+        return itemId == 0 ? nil : allItems.filter { item in return item.id == itemId }.first!
+    }
+    
+    func searchSummonerSpell(summonerSpellId: Int) -> SummonerSpell {
+        return allSummonerSpells.filter { spell in
+            return spell.id == summonerSpellId
+            }.first!
     }
     
     func searchChampion(name: String, successHandler: (champions: [Champion]) -> Void, errorHandler: (errorMsg: String) -> Void) {
@@ -149,6 +186,70 @@ class RiotAPIClient: NSObject {
         
     }
     
+    func downloadItems(errorHandler: ((errorMsg: String) -> Void)?, successHandler: (Void -> Void)?) {
+        let lolHelper = LoL(apiKey: apiKey, region: LoL.Region.na)
+        lolHelper.getItemList([LoL.ItemListData.all])
+        
+        Alamofire.request(.GET, lolHelper.URL, parameters: nil)
+            .responseSwiftyJSON ({ (request, response, json, error) in
+                
+                if let _ = error {
+                    // Report error if required
+                    if let errorHandler = errorHandler {
+                        errorHandler(errorMsg: "Item search failed")
+                    }
+                } else {
+                    
+                    self.allItems = []
+                    for (_, item) in json["data"].dictionaryValue {
+                        let newItem = Item(dictionary: item, context: self.sharedContext)
+                        self.allItems.append(newItem)
+                    }
+                    
+                    // Save the context
+                    CoreDataStackManager.sharedInstance().saveContext()
+                    
+                    // Report success if required
+                    if let successHandler = successHandler {
+                        successHandler()
+                    }
+                }
+                
+            })
+    }
+    
+    func downloadSummonerSpells(errorHandler: ((errorMsg: String) -> Void)?, successHandler: (Void -> Void)?) {
+        let lolHelper = LoL(apiKey: apiKey, region: LoL.Region.na)
+        lolHelper.getSummonerSpellList([LoL.SpellData.all])
+        
+        Alamofire.request(.GET, lolHelper.URL, parameters: nil)
+            .responseSwiftyJSON ({ (request, response, json, error) in
+                
+                if let _ = error {
+                    // Report error if required
+                    if let errorHandler = errorHandler {
+                        errorHandler(errorMsg: "Summoner Spells search failed")
+                    }
+                } else {
+                    
+                    self.allSummonerSpells = []
+                    for (_, item) in json["data"].dictionaryValue {
+                        let newItem = SummonerSpell(dictionary: item, context: self.sharedContext)
+                        self.allSummonerSpells.append(newItem)
+                    }
+                    
+                    // Save the context
+                    CoreDataStackManager.sharedInstance().saveContext()
+                    
+                    // Report success if required
+                    if let successHandler = successHandler {
+                        successHandler()
+                    }
+                }
+                
+            })
+    }
+    
     func getImage(path: String, successHandler: (image: UIImage) -> Void) -> NSURLSessionTask {
         
         return
@@ -158,10 +259,6 @@ class RiotAPIClient: NSObject {
                 }
             }
             .task
-    }
-    
-    func downloadItems() {
-        
     }
     
     func getSummonerRecentMatches(summoner: Summoner, successHandler: (summoner: Summoner, matches: [RecentMatch]) -> Void, errorHandler: (errorMsg: String) -> Void) {

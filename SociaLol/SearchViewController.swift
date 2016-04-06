@@ -31,6 +31,10 @@ class SearchViewController: UIViewController {
         // Setup keyboard
         textField.delegate = self
         addKeyboardGestureRecognizer()
+        
+        // TODO: REMOVE
+        RiotAPIClient.sharedInstance().downloadItems(nil, successHandler: nil)
+        RiotAPIClient.sharedInstance().downloadSummonerSpells(nil, successHandler: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

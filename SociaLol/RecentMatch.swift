@@ -47,7 +47,7 @@ struct RecentMatch {
         deaths = dictionary["stats"]["numDeaths"].intValue
         gold = dictionary["stats"]["goldEarned"].intValue
         level = dictionary["stats"]["level"].intValue
-        minions = dictionary["stats"]["minionsKilled"].intValue
+        minions = dictionary["stats"]["minionsKilled"].intValue + dictionary["stats"]["neutralMinionsKilled"].intValue
         duration = dictionary["stats"]["timePlayed"].intValue
         win = dictionary["stats"]["win"].boolValue
         
