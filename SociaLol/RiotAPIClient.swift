@@ -117,10 +117,11 @@ class RiotAPIClient: NSObject {
     }
     
     func searchItem(itemId: Int) -> Item? {
-        if itemId == 0 {
+        let items = allItems.filter { item in return item.id == itemId }
+        if items.count == 0 {
             return nil
         }
-        return itemId == 0 ? nil : allItems.filter { item in return item.id == itemId }.first!
+        return items.first!
     }
     
     func searchSummonerSpell(summonerSpellId: Int) -> SummonerSpell {
@@ -156,6 +157,7 @@ class RiotAPIClient: NSObject {
         
         let lolHelper = LoL(apiKey: apiKey, region: LoL.Region.na)
         lolHelper.getChampionList([LoL.ChampData.all])
+        //lolHelper.getAllChampions()
         
         Alamofire.request(.GET, lolHelper.URL, parameters: nil)
             .responseSwiftyJSON ({ (request, response, json, error) in
@@ -167,6 +169,7 @@ class RiotAPIClient: NSObject {
                     }
                 } else {
                     
+                    print(json)
                     self.allChampions = []
                     for (_, champ) in json["data"].dictionaryValue {
                         let champion = Champion(dictionary: champ, context: self.sharedContext)

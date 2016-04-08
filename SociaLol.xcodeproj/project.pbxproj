@@ -36,6 +36,8 @@
 		D17A77841CB03C450078B9B2 /* TopChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77831CB03C450078B9B2 /* TopChampion.swift */; };
 		D17A77861CB099A10078B9B2 /* LeagueInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77851CB099A10078B9B2 /* LeagueInfo.swift */; };
 		D17A77881CB369AF0078B9B2 /* RecentMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A77871CB369AF0078B9B2 /* RecentMatchTableViewCell.swift */; };
+		D1D165881CB6142500B18F71 /* ChampionProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D165871CB6142500B18F71 /* ChampionProfileViewController.swift */; };
+		D1D1658A1CB6218C00B18F71 /* StatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D165891CB6218C00B18F71 /* StatBarView.swift */; };
 		D1F5E98D1CB4BDE300F6172E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F5E98C1CB4BDE300F6172E /* Item.swift */; };
 		D1F5E98F1CB4CAAC00F6172E /* SummonerSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F5E98E1CB4CAAC00F6172E /* SummonerSpell.swift */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		D17A77831CB03C450078B9B2 /* TopChampion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopChampion.swift; sourceTree = "<group>"; };
 		D17A77851CB099A10078B9B2 /* LeagueInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeagueInfo.swift; sourceTree = "<group>"; };
 		D17A77871CB369AF0078B9B2 /* RecentMatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentMatchTableViewCell.swift; sourceTree = "<group>"; };
+		D1D165871CB6142500B18F71 /* ChampionProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionProfileViewController.swift; sourceTree = "<group>"; };
+		D1D165891CB6218C00B18F71 /* StatBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatBarView.swift; sourceTree = "<group>"; };
 		D1F5E98C1CB4BDE300F6172E /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D1F5E98E1CB4CAAC00F6172E /* SummonerSpell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerSpell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +208,7 @@
 				D110F99C1C9A17D7002C8CA3 /* LaunchScreen.storyboard */,
 				D110F9DB1CA652B7002C8CA3 /* ChampionTableViewCell.swift */,
 				D17A77871CB369AF0078B9B2 /* RecentMatchTableViewCell.swift */,
+				D1D165891CB6218C00B18F71 /* StatBarView.swift */,
 				D110F9DD1CA652CC002C8CA3 /* SummonerTableViewCell.swift */,
 				D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */,
 				D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */,
@@ -218,6 +223,7 @@
 				D110F9921C9A17D7002C8CA3 /* SearchViewController.swift */,
 				D110F9C91C9BAAC0002C8CA3 /* SearchResultsViewController.swift */,
 				D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */,
+				D1D165871CB6142500B18F71 /* ChampionProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -450,7 +456,9 @@
 			files = (
 				D17A77821CB03C300078B9B2 /* RankedInfo.swift in Sources */,
 				D110F9DC1CA652B7002C8CA3 /* ChampionTableViewCell.swift in Sources */,
+				D1D1658A1CB6218C00B18F71 /* StatBarView.swift in Sources */,
 				D17A77841CB03C450078B9B2 /* TopChampion.swift in Sources */,
+				D1D165881CB6142500B18F71 /* ChampionProfileViewController.swift in Sources */,
 				D1F5E98F1CB4CAAC00F6172E /* SummonerSpell.swift in Sources */,
 				D110F9D91CA6383D002C8CA3 /* Summoner.swift in Sources */,
 				D1F5E98D1CB4BDE300F6172E /* Item.swift in Sources */,

@@ -17,7 +17,7 @@ class SearchResultsViewController: UIViewController {
     var rankedInfo: RankedInfo!
     var topChampions: [TopChampion]!
     
-    let brownColor = UIColor(red: 122/255.0, green: 111/255.0, blue: 102/255.0, alpha: 1.0)
+    let brownColor = UIColor(red: 122/255.0, green: 111/255.0, blue: 102/255.0, alpha: 0.5)
     let grayColor = UIColor(red: 34/255.0, green: 41/255.0, blue: 48/255.0, alpha: 1.0)
     
     @IBOutlet weak var resultsTableView: UITableView!
@@ -121,6 +121,15 @@ extension SearchResultsViewController: UITableViewDelegate {
         
             RiotAPIClient.sharedInstance().getSummonerRecentMatches(summoner, successHandler: foundRecentMatches, errorHandler: searchError)
             
+        } else if let champion = sections[indexPath.section][indexPath.row] as? Champion {
+            
+            // Push next VC
+            let profile = storyboard?.instantiateViewControllerWithIdentifier("ChampionProfileViewController") as! ChampionProfileViewController
+            
+            profile.champion = champion
+            
+            profile.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(profile, animated: true)
         }
     }
     

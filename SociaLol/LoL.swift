@@ -187,6 +187,11 @@ public class LoL {
     }
     
     // MARK: Static Data
+    public func getAllChampions() {
+        let hostString = "http://ddragon.leagueoflegends.com/cdn/6.7.1/data/en_US/champion.json"
+        
+        URL = hostString
+    }
     
     public func getChampionList(champDataOptions: [ChampData]?) {
         
@@ -599,11 +604,11 @@ public class LoL {
     }
     
     public static func getImage(group: String, imageName: String) -> String {
-        return "https://ddragon.leagueoflegends.com/cdn/6.5.1/img/\(group)/\(imageName)"
+        return "https://ddragon.leagueoflegends.com/cdn/6.7.1/img/\(group)/\(imageName)"
     }
     
     public static func getProfileImage(id: Int) -> String {
-        return "https://ddragon.leagueoflegends.com/cdn/6.6.1/img/profileicon/\(id).png"
+        return "https://ddragon.leagueoflegends.com/cdn/6.7.1/img/profileicon/\(id).png"
     }
     
     // MARK: Enum Constants

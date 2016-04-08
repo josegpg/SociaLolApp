@@ -18,7 +18,7 @@ class ChampionTableViewCell : TaskCancelingTableViewCell {
     func setUp(champion: Champion) {
         // SET UP LABELS
         nameLabel.text = champion.name
-        rolesLabel.text = champion.tags.map { String($0) }.joinWithSeparator(",")
+        rolesLabel.text = champion.tags.map { String($0) }.joinWithSeparator(", ")
         
         // SET UP IMAGE
         
