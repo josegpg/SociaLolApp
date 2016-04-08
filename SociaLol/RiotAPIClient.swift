@@ -169,7 +169,6 @@ class RiotAPIClient: NSObject {
                     }
                 } else {
                     
-                    print(json)
                     self.allChampions = []
                     for (_, champ) in json["data"].dictionaryValue {
                         let champion = Champion(dictionary: champ, context: self.sharedContext)

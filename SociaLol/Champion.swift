@@ -42,7 +42,7 @@ class Champion: NSManagedObject {
 
         // Dictionary
         id = dictionary["id"].intValue
-        blurb = dictionary["blurb"].stringValue
+        blurb = dictionary["lore"].stringValue
         key = dictionary["key"].stringValue
         imageGroup = dictionary["image"]["group"].stringValue
         imageName = dictionary["image"]["full"].stringValue

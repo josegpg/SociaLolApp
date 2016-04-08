@@ -50,15 +50,15 @@ public class StatBarView: UIView {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        statImage = UIImageView(frame: CGRectMake(15.0, 0.0, 20.0, 20.0))
+        statImage = UIImageView(frame: CGRectMake(10.0, 0.0, 20.0, 20.0))
         statImage.contentMode = .ScaleToFill
         
-        bar = UIView(frame: CGRectMake(37.0, 0.0, 2.0, 20.0))
+        bar = UIView(frame: CGRectMake(35.0, 0.0, 2.0, 20.0))
         bar.layer.borderWidth = 1.0
         bar.layer.borderColor = UIColor.lightTextColor().CGColor
         
-        barColor1 = UIView(frame: CGRectMake(37.0, 0.0, 2.0, 10.0))
-        barColor2 = UIView(frame: CGRectMake(37.0, 10.0, 2.0, 10.0))
+        barColor1 = UIView(frame: CGRectMake(35.0, 0.0, 2.0, 10.0))
+        barColor2 = UIView(frame: CGRectMake(35.0, 10.0, 2.0, 10.0))
         
         addSubview(statImage)
         addSubview(barColor1)
@@ -78,9 +78,8 @@ public class StatBarView: UIView {
         statImage.image = UIImage(named: barStyle.rawValue)
         
         // Min 2, max 248
-        let barWidth = barValue / 10.0 * 246.0 + 2.0
+        let barWidth = barValue / 10.0 * 248.0 + 2.0
         let newRect = CGRectMake(bar.origin.x, bar.origin.y, barWidth, bar.frame.height)
-        
         
         // Set bar colors
         let colors = barToColor[barStyle]!
