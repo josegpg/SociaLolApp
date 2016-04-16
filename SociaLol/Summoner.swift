@@ -13,6 +13,13 @@ import SwiftyJSON
 
 class Summoner: NSManagedObject {
     
+    struct Keys {
+        static let Name = "name"
+        static let SummonerLevel = "summonerLevel"
+        static let ProfileIconId = "profileIconId"
+        static let ID = "id"
+    }
+    
     @NSManaged var id: NSNumber
     @NSManaged var imageId: NSNumber
     @NSManaged var name: String
@@ -30,12 +37,17 @@ class Summoner: NSManagedObject {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         // Dictionary
-        id = dictionary["id"].intValue
-        imageId = dictionary["profileIconId"].intValue
-        level = dictionary["summonerLevel"].intValue
-        name = dictionary["name"].stringValue
+        id = dictionary[Keys.ID].intValue
+        imageId = dictionary[Keys.ProfileIconId].intValue
+        level = dictionary[Keys.SummonerLevel].intValue
+        name = dictionary[Keys.Name].stringValue
         
         self.region = region
+    }
+    
+    override func prepareForDeletion() {
+        // Triggers the deletion of the stored image
+        image = nil
     }
     
     func getImageUrl() -> String {

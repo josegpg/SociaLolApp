@@ -47,6 +47,7 @@ class RiotAPIClient: NSObject {
         // Fetch stored champions
         allChampions = fetchAllStoredChampions()
         allItems = fetchAllStoredItems()
+        allSummonerSpells = fetchAllStoredSummonerSpells()
         
         // Set the temporary context
         temporaryContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
@@ -81,6 +82,31 @@ class RiotAPIClient: NSObject {
             print("Error in fetchAllSummonerSpells(): \(error)")
             return [SummonerSpell]()
         }
+    }
+    
+    func fetchAllStoredSummoners() -> [Summoner] {
+        let fetchRequest = NSFetchRequest(entityName: "Summoner")
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Summoner]
+        } catch let error as NSError {
+            print("Error in fetchAllChampions(): \(error)")
+            return [Summoner]()
+        }
+    }
+    
+    func getFavSummoners() -> [Summoner] {
+        return fetchAllStoredSummoners()
+    }
+    
+    func getStoredSummoner(summonerId: Int) -> Summoner? {
+        let summoners = fetchAllStoredSummoners()
+        for summoner in summoners {
+            if summoner.id == summonerId {
+                return summoner
+            }
+        }
+        
+        return nil
     }
     
     func searchSummoner(name: String, region: LoL.Region, successHandler: (players: [Summoner]) -> Void, errorHandler: (errorMsg: String) -> Void) {
@@ -277,7 +303,9 @@ class RiotAPIClient: NSObject {
                     
                 } else {
                     
-                    let matches = json["games"].arrayValue.map{ RecentMatch(dictionary: $0) }
+                    let matches = json["games"].arrayValue.map {
+                        RecentMatch(dictionary: $0, summonerId: Int(summoner.id), summonerName: summoner.name)
+                    }
                     successHandler(summoner: summoner, matches: matches)
                 }
             })

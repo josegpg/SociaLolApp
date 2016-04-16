@@ -20,7 +20,7 @@ extension UIViewController {
     
     func addKeyboardGestureRecognizer() {
         //Looks for single or multiple taps in order to close keyboard.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     

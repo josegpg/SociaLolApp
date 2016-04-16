@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import CoreData
 import EZSwiftExtensions
+import SwiftyJSON
 
 class SummonerProfileViewController: UIViewController {
     
@@ -19,6 +21,8 @@ class SummonerProfileViewController: UIViewController {
     @IBOutlet weak var summonerName: UILabel!
     @IBOutlet weak var summonerRegion: UILabel!
     @IBOutlet weak var summonerLevel: UILabel!
+    
+    @IBOutlet weak var favButton: UIButton!
     
     // AVERAGE STATS
     
@@ -51,11 +55,17 @@ class SummonerProfileViewController: UIViewController {
     @IBOutlet weak var v3LeaguePoints: UILabel!
     
     // Stored properties
+    var storedSummoner: Summoner?
     var summoner: Summoner!
     var recentMatches: [RecentMatch]!
     var rankedInfo: RankedInfo!
     var topChampions: [TopChampion]!
     
+    // MARK: - Shared Context
+    
+    lazy var sharedContext: NSManagedObjectContext = {
+        CoreDataStackManager.sharedInstance().managedObjectContext
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +80,13 @@ class SummonerProfileViewController: UIViewController {
         setUpAverages()
         setUpTopChampions()
         setUpRankedInfo()
+        
+        // Set up fav button
+        if let storedSummoner = RiotAPIClient.sharedInstance().getStoredSummoner(Int(summoner.id)) {
+            self.storedSummoner = storedSummoner
+        }
+        
+        favButton.selected = storedSummoner != nil
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -206,6 +223,29 @@ class SummonerProfileViewController: UIViewController {
         navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func addToFavoritesAction(sender: UIButton) {
+        
+        if sender.selected {
+            
+            sharedContext.deleteObject(storedSummoner!)
+            storedSummoner = nil
+            
+        } else {
+            let dictionary = [
+                Summoner.Keys.ID : summoner.id,
+                Summoner.Keys.Name : summoner.name,
+                Summoner.Keys.ProfileIconId : summoner.imageId,
+                Summoner.Keys.SummonerLevel : summoner.level
+            ]
+            
+            self.storedSummoner = Summoner(dictionary: JSON(dictionary), region: summoner.region, context: sharedContext)
+            
+        }
+        
+        CoreDataStackManager.sharedInstance().saveContext()
+        sender.selected = !sender.selected
+    }
+
 }
 
 extension SummonerProfileViewController: UITableViewDelegate {
@@ -231,11 +271,12 @@ extension SummonerProfileViewController: UITableViewDataSource {
     }
 }
 
-public func formatGold(var gold: Double) -> String {
-    if gold > 1000 {
-        gold = gold/1000.0
+public func formatGold(gold: Double) -> String {
+    var vGold = gold
+    if vGold > 1000 {
+        vGold = vGold/1000.0
         
-        return String(format: "%.1fK", gold)
+        return String(format: "%.1fK", vGold)
     }
     
     return gold.toString

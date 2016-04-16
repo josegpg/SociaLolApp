@@ -64,6 +64,7 @@ class Champion: NSManagedObject {
     override func prepareForDeletion() {
         // Triggers the deletion of the stored image
         image = nil
+        splash = nil
     }
     
     func getImageUrl() -> String {

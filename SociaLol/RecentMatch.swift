@@ -9,7 +9,10 @@
 import Foundation
 import SwiftyJSON
 
-struct RecentMatch {
+class RecentMatch: Equatable, Hashable, Comparable {
+    
+    var summonerId: Int
+    var summonerName: String
     
     var championId: Int
     var date: Int64 // createDate
@@ -35,7 +38,17 @@ struct RecentMatch {
     var itemId5: Int // item5
     var itemId6: Int // item6
     
-    init(dictionary: JSON) {
+    var hashValue: Int {
+        get {
+            return date.hashValue << 30 + summonerId.hashValue
+        }
+    }
+    
+    init(dictionary: JSON, summonerId: Int, summonerName: String) {
+        
+        self.summonerId = summonerId
+        self.summonerName = summonerName
+        
         championId = dictionary["championId"].intValue
         date = dictionary["createDate"].int64Value
         spellId1 = dictionary["spell1"].intValue
@@ -60,4 +73,12 @@ struct RecentMatch {
         itemId6 = dictionary["stats"]["item6"].intValue
         
     }
+}
+
+func ==(lhs: RecentMatch, rhs: RecentMatch) -> Bool {
+    return lhs.summonerId == rhs.summonerId && lhs.date == rhs.date
+}
+
+func <(lhs: RecentMatch, rhs: RecentMatch) -> Bool {
+    return lhs.date > rhs.date
 }
