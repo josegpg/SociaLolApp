@@ -19,8 +19,8 @@ class RecentActivityViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         refreshRecentGames()
     }
@@ -69,7 +69,7 @@ class RecentActivityViewController: UIViewController {
     }
     
     @IBAction func refreshDataAction(sender: UIButton) {
-        fetchRecentGames()
+        refreshRecentGames()
     }
 
 }

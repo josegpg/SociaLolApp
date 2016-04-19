@@ -16,6 +16,11 @@ class SummonerTableViewCell : TaskCancelingTableViewCell {
     @IBOutlet weak var regionLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     
+    // Ranked info
+    @IBOutlet weak var rankedBadge: UIImageView!
+    @IBOutlet weak var rankedPtsLabel: UILabel!
+    @IBOutlet weak var rankedNameLabel: UILabel!
+    
     func setUp(summoner: Summoner) {
         // SET UP LABELS
         nameLabel.text = summoner.name
@@ -54,5 +59,18 @@ class SummonerTableViewCell : TaskCancelingTableViewCell {
         }
         
         summonerImage.image = profileImage
+    }
+    
+    func setUpRankedInfo(rankedInfo: RankedInfo) {
+        if let soloInfo = rankedInfo.soloLeagueInfo {
+            rankedBadge.image = UIImage(named: soloInfo.getLeagueImageTitle())
+            rankedNameLabel.text = soloInfo.getLeagueCompleteName()
+            rankedPtsLabel.text = "\(soloInfo.leaguePoints) Pts"
+            rankedPtsLabel.hidden = false
+        } else {
+            rankedNameLabel.text = "Unranked"
+            rankedBadge.image = UIImage(named: "provisional")
+            rankedPtsLabel.hidden = true
+        }
     }
 }

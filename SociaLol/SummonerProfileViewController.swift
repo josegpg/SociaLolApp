@@ -248,10 +248,6 @@ class SummonerProfileViewController: UIViewController {
 
 }
 
-extension SummonerProfileViewController: UITableViewDelegate {
-    
-}
-
 extension SummonerProfileViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

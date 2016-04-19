@@ -33,4 +33,29 @@ struct RankedInfo {
         }
         
     }
+    
+    init(dictionary: JSON, summonerId: String) {
+        
+        for leagueInfo in dictionary.arrayValue {
+            switch leagueInfo["queue"].stringValue {
+            case LoL.RankedQueues.Solo_5x5.rawValue:
+                soloLeagueInfo = LeagueInfo(dictionary: leagueInfo, summonerId: summonerId)
+            case LoL.RankedQueues.Team_5x5.rawValue:
+                v5LeagueInfo = LeagueInfo(dictionary: leagueInfo, summonerId: summonerId)
+            case LoL.RankedQueues.Team_3x3.rawValue:
+                v3LeagueInfo = LeagueInfo(dictionary: leagueInfo, summonerId: summonerId)
+            default:
+                break
+            }
+        }
+        
+    }
+    
+    func getSoloQueuePoints() -> Int {
+        if let soloLeagueInfo = soloLeagueInfo {
+            return soloLeagueInfo.getLeagueNumber()
+        }
+        
+        return 0
+    }
 }

@@ -344,6 +344,30 @@ class RiotAPIClient: NSObject {
         
     }
     
+    func getSummonersRankStats(summoners: [Int], region: String, successHandler: (summoners: [Int], info: [RankedInfo], regionIndex: Int) -> Void, errorHandler: (errorMsg: String) -> Void, regionIndex: Int) {
+        
+        let lolHelper = LoL(apiKey: apiKey, region: LoL.Region(rawValue: region))
+        lolHelper.getLeagueInfoEntries( summoners )
+        
+        Alamofire.request(.GET, lolHelper.URL, parameters: nil)
+            .responseSwiftyJSON ({ (request, response, json, error) in
+                
+                if let _ = error {
+                    
+                    errorHandler(errorMsg: "Summoner fetch info failed")
+                    
+                } else {
+                    var rankedInfos: [RankedInfo] = []
+                    for summoner in summoners {
+                        rankedInfos.append( RankedInfo(dictionary: json[String(summoner)], summonerId: String(summoner)) )
+                    }
+                    successHandler(summoners: summoners, info: rankedInfos, regionIndex: regionIndex + 1)
+                    
+                }
+            })
+        
+    }
+    
     func getSummonerTopChampions(summoner: Summoner, successHandler: (summoner: Summoner, topChampions: [TopChampion]) -> Void, errorHandler: (errorMsg: String) -> Void) {
         
         let lolHelper = LoL(apiKey: apiKey, region: LoL.Region(rawValue: summoner.region))
