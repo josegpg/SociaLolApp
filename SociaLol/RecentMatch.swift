@@ -13,6 +13,7 @@ class RecentMatch: Equatable, Hashable, Comparable {
     
     var summonerId: Int
     var summonerName: String
+    var summonerRegion: String
     
     var championId: Int
     var date: Int64 // createDate
@@ -44,10 +45,11 @@ class RecentMatch: Equatable, Hashable, Comparable {
         }
     }
     
-    init(dictionary: JSON, summonerId: Int, summonerName: String) {
+    init(dictionary: JSON, summoner: Summoner) {
         
-        self.summonerId = summonerId
-        self.summonerName = summonerName
+        self.summonerId = Int(summoner.id)
+        self.summonerName = summoner.name
+        self.summonerRegion = summoner.region
         
         championId = dictionary["championId"].intValue
         date = dictionary["createDate"].int64Value

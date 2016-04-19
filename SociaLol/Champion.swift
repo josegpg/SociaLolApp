@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 import SwiftyJSON
 
-class Champion: NSManagedObject {
+class Champion: NSManagedObject, Comparable {
     
     @NSManaged var id: NSNumber
     @NSManaged var allyTips: NSArray
@@ -93,4 +93,8 @@ class Champion: NSManagedObject {
         set { RiotAPIClient.Caches.imageCache.storeImage(newValue, withIdentifier: getSplashId()) }
     }
     
+}
+
+func <(lhs: Champion, rhs: Champion) -> Bool {
+    return lhs.name < rhs.name
 }

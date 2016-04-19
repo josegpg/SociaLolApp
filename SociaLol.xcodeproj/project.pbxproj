@@ -29,6 +29,7 @@
 		D110F9DE1CA652CC002C8CA3 /* SummonerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9DD1CA652CC002C8CA3 /* SummonerTableViewCell.swift */; };
 		D110F9E01CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */; };
 		D14636BA1CC1FD5A003F99EA /* RecentActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14636B91CC1FD5A003F99EA /* RecentActivityViewController.swift */; };
+		D14636BC1CC2D240003F99EA /* ChampionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14636BB1CC2D240003F99EA /* ChampionListViewController.swift */; };
 		D157C84F1CA664C400059F8D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157C84E1CA664C400059F8D /* ImageCache.swift */; };
 		D17A777C1CAF7E550078B9B2 /* TopChampionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */; };
 		D17A777E1CAF82E80078B9B2 /* SummonerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */; };
@@ -91,6 +92,7 @@
 		D110F9DD1CA652CC002C8CA3 /* SummonerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerTableViewCell.swift; sourceTree = "<group>"; };
 		D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCancelingCollectionViewCell.swift; sourceTree = "<group>"; };
 		D14636B91CC1FD5A003F99EA /* RecentActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentActivityViewController.swift; sourceTree = "<group>"; };
+		D14636BB1CC2D240003F99EA /* ChampionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionListViewController.swift; sourceTree = "<group>"; };
 		D157C84E1CA664C400059F8D /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopChampionSummaryView.swift; sourceTree = "<group>"; };
 		D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerProfileViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */,
 				D1D165871CB6142500B18F71 /* ChampionProfileViewController.swift */,
 				D14636B91CC1FD5A003F99EA /* RecentActivityViewController.swift */,
+				D14636BB1CC2D240003F99EA /* ChampionListViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				D110F9D21C9D0123002C8CA3 /* Passive.swift in Sources */,
 				D110F9CA1C9BAAC0002C8CA3 /* SearchResultsViewController.swift in Sources */,
 				D110F9911C9A17D7002C8CA3 /* AppDelegate.swift in Sources */,
+				D14636BC1CC2D240003F99EA /* ChampionListViewController.swift in Sources */,
 				D110F9D41C9D012F002C8CA3 /* Spell.swift in Sources */,
 				D110F9991C9A17D7002C8CA3 /* SociaLol.xcdatamodeld in Sources */,
 				D17A77801CB03C120078B9B2 /* RecentMatch.swift in Sources */,

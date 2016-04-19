@@ -71,8 +71,8 @@ class RecentMatchTableViewCell: UITableViewCell {
         
     }
     
-    func addSummonerName(name: String) {
-        gameTypeLabel.text = "\(name) - \(gameTypeLabel.text!)"
+    func addSummonerName(name: String, region: String) {
+        gameTypeLabel.text = "\(name)(\(region)) - \(gameTypeLabel.text!)"
     }
     
     func setItemImageView(imageView: UIImageView, withItem item: Item!) {

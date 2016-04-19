@@ -89,7 +89,7 @@ class RiotAPIClient: NSObject {
         do {
             return try sharedContext.executeFetchRequest(fetchRequest) as! [Summoner]
         } catch let error as NSError {
-            print("Error in fetchAllChampions(): \(error)")
+            print("Error in fetchAllStoredSummoners(): \(error)")
             return [Summoner]()
         }
     }
@@ -154,6 +154,16 @@ class RiotAPIClient: NSObject {
         return allSummonerSpells.filter { spell in
             return spell.id == summonerSpellId
             }.first!
+    }
+    
+    func getAllChampions(successHandler: (champions: [Champion]) -> Void, errorHandler: (errorMsg: String) -> Void) {
+        if allChampions.isEmpty {
+            downloadChampions(errorHandler) {
+                successHandler(champions: self.allChampions)
+            }
+        } else {
+            successHandler(champions: allChampions)
+        }
     }
     
     func searchChampion(name: String, successHandler: (champions: [Champion]) -> Void, errorHandler: (errorMsg: String) -> Void) {
@@ -304,7 +314,7 @@ class RiotAPIClient: NSObject {
                 } else {
                     
                     let matches = json["games"].arrayValue.map {
-                        RecentMatch(dictionary: $0, summonerId: Int(summoner.id), summonerName: summoner.name)
+                        RecentMatch(dictionary: $0, summoner: summoner)
                     }
                     successHandler(summoner: summoner, matches: matches)
                 }

@@ -15,6 +15,7 @@ class RecentActivityViewController: UIViewController {
     var favoriteSummoners: [Summoner] = []
     var friendsActivities: Set<RecentMatch> = []
     var sortedFriendActivities: [RecentMatch] = []
+    var firstRequestArrived: Bool = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -32,15 +33,12 @@ class RecentActivityViewController: UIViewController {
         // Refresh favorite summoners
         favoriteSummoners = RiotAPIClient.sharedInstance().getFavSummoners()
         
-        ez.runThisInMainThread { () -> Void in
-            self.friendsActivities.removeAll()
-            self.sortedFriendActivities.removeAll()
-        }
-        
         fetchRecentGames()
     }
     
     func fetchRecentGames() {
+        firstRequestArrived = false
+        
         for summoner in favoriteSummoners {
             RiotAPIClient.sharedInstance().getSummonerRecentMatches(summoner, successHandler: foundRecentMatches, errorHandler: searchError)
         }
@@ -48,6 +46,14 @@ class RecentActivityViewController: UIViewController {
     
     func foundRecentMatches(summoner: Summoner, recentMatches: [RecentMatch]) {
         ez.runThisInMainThread { () -> Void in
+            
+            if !self.firstRequestArrived {
+                self.firstRequestArrived = true
+                
+                self.friendsActivities.removeAll()
+                self.sortedFriendActivities.removeAll()
+            }
+            
             for match in recentMatches {
                 self.friendsActivities.insert(match)
             }
@@ -81,8 +87,9 @@ extension RecentActivityViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("matchCell") as! RecentMatchTableViewCell
         
-        cell.setUp(sortedFriendActivities[indexPath.row])
-        cell.addSummonerName(sortedFriendActivities[indexPath.row].summonerName)
+        let recentMatch = sortedFriendActivities[indexPath.row]
+        cell.setUp(recentMatch)
+        cell.addSummonerName(recentMatch.summonerName, region: recentMatch.summonerRegion.uppercaseString)
         
         return cell
     }
