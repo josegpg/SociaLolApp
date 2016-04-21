@@ -16,8 +16,12 @@ class RecentActivityViewController: UIViewController {
     var friendsActivities: Set<RecentMatch> = []
     var sortedFriendActivities: [RecentMatch] = []
     var firstRequestArrived: Bool = false
+    var shownError: Bool = false
+    var msgError: String = ""
+    var finishedRequests: Int = 0
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +42,18 @@ class RecentActivityViewController: UIViewController {
     
     func fetchRecentGames() {
         firstRequestArrived = false
+        finishedRequests = 0
+        shownError = false
         
+        SpecialActivityIndicator.sharedInstance().show(view, msg: "Loading matches")
         for summoner in favoriteSummoners {
             RiotAPIClient.sharedInstance().getSummonerRecentMatches(summoner, successHandler: foundRecentMatches, errorHandler: searchError)
         }
     }
     
     func foundRecentMatches(summoner: Summoner, recentMatches: [RecentMatch]) {
+        finishedRequests += 1
+        
         ez.runThisInMainThread { () -> Void in
             
             if !self.firstRequestArrived {
@@ -58,14 +67,31 @@ class RecentActivityViewController: UIViewController {
                 self.friendsActivities.insert(match)
             }
             
-            self.sortedFriendActivities = self.friendsActivities.sort()
-            self.tableView.reloadData()
+            self.checkQueryFinished()
         }
     }
     
     func searchError(errorMsg: String) {
-        // Notify the user about the error
-        showGeneralAlert("Error", message: errorMsg, buttonTitle: "Ok")
+        finishedRequests += 1
+        shownError = true
+        msgError = errorMsg
+    }
+    
+    func checkQueryFinished() {
+        if finishedRequests == favoriteSummoners.count && !shownError {
+            SpecialActivityIndicator.sharedInstance().hide()
+            
+            sortedFriendActivities = friendsActivities.sort()
+            emptyLabel.hidden = !friendsActivities.isEmpty
+            tableView.reloadData()
+        }
+        
+        if finishedRequests == favoriteSummoners.count && shownError {
+            SpecialActivityIndicator.sharedInstance().hide()
+            
+            // Notify the user about the error
+            showGeneralAlert("Error", message: msgError, buttonTitle: "Ok")
+        }
     }
     
     @IBAction func refreshDataAction(sender: UIButton) {

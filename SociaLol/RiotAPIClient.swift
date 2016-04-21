@@ -11,6 +11,7 @@ import Alamofire
 import Alamofire_SwiftyJSON
 import AlamofireImage
 import CoreData
+import SwiftyJSON
 
 class RiotAPIClient: NSObject {
     
@@ -96,6 +97,21 @@ class RiotAPIClient: NSObject {
     
     func getFavSummoners() -> [Summoner] {
         return fetchAllStoredSummoners()
+    }
+    
+    func getSummonersInTemporaryContext(summoners: [Summoner]) -> [Summoner] {
+        
+        return summoners.map { summoner in
+            let dictionary = [
+                Summoner.Keys.ID : summoner.id,
+                Summoner.Keys.Name : summoner.name,
+                Summoner.Keys.ProfileIconId : summoner.imageId,
+                Summoner.Keys.SummonerLevel : summoner.level
+            ]
+            
+            return Summoner(dictionary: JSON(dictionary), region: summoner.region, context: temporaryContext)
+                
+        }
     }
     
     func getStoredSummoner(summonerId: Int) -> Summoner? {
@@ -205,18 +221,20 @@ class RiotAPIClient: NSObject {
                     }
                 } else {
                     
-                    self.allChampions = []
-                    for (_, champ) in json["data"].dictionaryValue {
-                        let champion = Champion(dictionary: champ, context: self.sharedContext)
-                        self.allChampions.append(champion)
-                    }
-                    
-                    // Save the context
-                    CoreDataStackManager.sharedInstance().saveContext()
-                    
-                    // Report success if required
-                    if let successHandler = successHandler {
-                        successHandler()
+                    self.sharedContext.performBlock {
+                        self.allChampions = []
+                        for (_, champ) in json["data"].dictionaryValue {
+                            let champion = Champion(dictionary: champ, context: self.sharedContext)
+                            self.allChampions.append(champion)
+                        }
+                        
+                        // Save the context
+                        CoreDataStackManager.sharedInstance().saveContext()
+                        
+                        // Report success if required
+                        if let successHandler = successHandler {
+                            successHandler()
+                        }
                     }
                 }
                 
@@ -238,18 +256,20 @@ class RiotAPIClient: NSObject {
                     }
                 } else {
                     
-                    self.allItems = []
-                    for (_, item) in json["data"].dictionaryValue {
-                        let newItem = Item(dictionary: item, context: self.sharedContext)
-                        self.allItems.append(newItem)
-                    }
-                    
-                    // Save the context
-                    CoreDataStackManager.sharedInstance().saveContext()
-                    
-                    // Report success if required
-                    if let successHandler = successHandler {
-                        successHandler()
+                    self.sharedContext.performBlock {
+                        self.allItems = []
+                        for (_, item) in json["data"].dictionaryValue {
+                            let newItem = Item(dictionary: item, context: self.sharedContext)
+                            self.allItems.append(newItem)
+                        }
+                        
+                        // Save the context
+                        CoreDataStackManager.sharedInstance().saveContext()
+                        
+                        // Report success if required
+                        if let successHandler = successHandler {
+                            successHandler()
+                        }
                     }
                 }
                 
@@ -269,19 +289,20 @@ class RiotAPIClient: NSObject {
                         errorHandler(errorMsg: "Summoner Spells search failed")
                     }
                 } else {
+                    self.sharedContext.performBlock {
+                        self.allSummonerSpells = []
+                        for (_, item) in json["data"].dictionaryValue {
+                            let newItem = SummonerSpell(dictionary: item, context: self.sharedContext)
+                            self.allSummonerSpells.append(newItem)
+                        }
+                        
+                        // Save the context
+                        CoreDataStackManager.sharedInstance().saveContext()
                     
-                    self.allSummonerSpells = []
-                    for (_, item) in json["data"].dictionaryValue {
-                        let newItem = SummonerSpell(dictionary: item, context: self.sharedContext)
-                        self.allSummonerSpells.append(newItem)
-                    }
-                    
-                    // Save the context
-                    CoreDataStackManager.sharedInstance().saveContext()
-                    
-                    // Report success if required
-                    if let successHandler = successHandler {
-                        successHandler()
+                        // Report success if required
+                        if let successHandler = successHandler {
+                            successHandler()
+                        }
                     }
                 }
                 
@@ -357,6 +378,7 @@ class RiotAPIClient: NSObject {
                     errorHandler(errorMsg: "Summoner fetch info failed")
                     
                 } else {
+                    print(json)
                     var rankedInfos: [RankedInfo] = []
                     for summoner in summoners {
                         rankedInfos.append( RankedInfo(dictionary: json[String(summoner)], summonerId: String(summoner)) )

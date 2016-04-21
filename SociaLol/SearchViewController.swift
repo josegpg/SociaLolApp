@@ -15,6 +15,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var findButton: UIButton!
     
     var searchedChampions: Bool = false
+    var shownError: Bool = false
+    var msgError: String = ""
     var searchedRegions: Int = 0
     var champions: [Champion] = []
     var summoners: [Summoner] = []
@@ -72,18 +74,28 @@ class SearchViewController: UIViewController {
         checkQueryEnded()
     }
     
-    func searchError(errorMsg: String) {
+    func searchSummonerError(errorMsg: String) {
+        searchedRegions += 1
+        shownError = true
+        msgError = errorMsg
         
-        // Enable the find button to search again
-        findButton.enabled = true
+        checkQueryEnded()
+    }
+    
+    func searchChampionError(errorMsg: String) {
+        searchedChampions = true
+        shownError = true
+        msgError = errorMsg
         
-        // Notify the user about the error
-        showGeneralAlert("Error", message: errorMsg, buttonTitle: "Ok")
+        checkQueryEnded()
     }
     
     func checkQueryEnded() {
         // All searches finished
-        if searchedRegions == LoL.Region.allValues.count && searchedChampions {
+        if searchedRegions == LoL.Region.allValues.count && searchedChampions && !shownError {
+            
+            // Hide loading screen
+            SpecialActivityIndicator.sharedInstance().hide()
             
             // find button enabled again
             findButton.enabled = true
@@ -104,6 +116,17 @@ class SearchViewController: UIViewController {
             results.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(results, animated: true)
         }
+        
+        if searchedRegions == LoL.Region.allValues.count && searchedChampions && shownError {
+            // Enable the find button to search again
+            findButton.enabled = true
+            
+            // Hide loading screen
+            SpecialActivityIndicator.sharedInstance().hide()
+            
+            // Notify the user about the error
+            showGeneralAlert("Error", message: msgError, buttonTitle: "Ok")
+        }
     }
     
     // MARK: actions
@@ -118,16 +141,19 @@ class SearchViewController: UIViewController {
             return
         }
         
+        SpecialActivityIndicator.sharedInstance().show(view, msg: "Searching ...")
+        
         // Disable find button to avoid multiple searchs
+        shownError = false
         findButton.enabled = false
         cleanSearchData()
         
         // Search Champions
-        RiotAPIClient.sharedInstance().searchChampion(trimmedName, successHandler: foundChampions, errorHandler: searchError)
+        RiotAPIClient.sharedInstance().searchChampion(trimmedName, successHandler: foundChampions, errorHandler: searchChampionError)
         
         // Search for summoner in every region
         for region in LoL.Region.allValues {
-            RiotAPIClient.sharedInstance().searchSummoner(trimmedName, region: region, successHandler: foundSummoners, errorHandler: searchError)
+            RiotAPIClient.sharedInstance().searchSummoner(trimmedName, region: region, successHandler: foundSummoners, errorHandler: searchSummonerError)
         }
     }
 

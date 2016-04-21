@@ -39,6 +39,7 @@ class SummonerProfileViewController: UIViewController {
     @IBOutlet weak var topChampion2: TopChampionSummaryView!
     @IBOutlet weak var topChampion3: TopChampionSummaryView!
     @IBOutlet weak var topChampion4: TopChampionSummaryView!
+    @IBOutlet weak var emptyTopChampion: UILabel!
     
     // RANKED SECTIONS OUTLETS
 
@@ -87,6 +88,7 @@ class SummonerProfileViewController: UIViewController {
         }
         
         favButton.selected = storedSummoner != nil
+        updateFavButton()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -188,6 +190,8 @@ class SummonerProfileViewController: UIViewController {
         for (index, topChampion) in topChampions.enumerate() {
             championViews[index].fillWithTopChampion(topChampion)
         }
+        
+        emptyTopChampion.hidden = !topChampions.isEmpty
     }
     
     func setUpRankedInfo() {
@@ -224,26 +228,32 @@ class SummonerProfileViewController: UIViewController {
     }
     
     @IBAction func addToFavoritesAction(sender: UIButton) {
-        
-        if sender.selected {
+        sharedContext.performBlock {
+            if sender.selected {
+                
+                self.sharedContext.deleteObject(self.storedSummoner!)
+                self.storedSummoner = nil
+                
+            } else {
+                let dictionary = [
+                    Summoner.Keys.ID : self.summoner.id,
+                    Summoner.Keys.Name : self.summoner.name,
+                    Summoner.Keys.ProfileIconId : self.summoner.imageId,
+                    Summoner.Keys.SummonerLevel : self.summoner.level
+                ]
+                
+                self.storedSummoner = Summoner(dictionary: JSON(dictionary), region: self.summoner.region, context: self.sharedContext)
+                
+            }
             
-            sharedContext.deleteObject(storedSummoner!)
-            storedSummoner = nil
-            
-        } else {
-            let dictionary = [
-                Summoner.Keys.ID : summoner.id,
-                Summoner.Keys.Name : summoner.name,
-                Summoner.Keys.ProfileIconId : summoner.imageId,
-                Summoner.Keys.SummonerLevel : summoner.level
-            ]
-            
-            self.storedSummoner = Summoner(dictionary: JSON(dictionary), region: summoner.region, context: sharedContext)
-            
+            CoreDataStackManager.sharedInstance().saveContext()
+            sender.selected = !sender.selected
+            self.updateFavButton()
         }
-        
-        CoreDataStackManager.sharedInstance().saveContext()
-        sender.selected = !sender.selected
+    }
+    
+    func updateFavButton() {
+        favButton.backgroundColor = favButton.selected ? UIColor(r: 280, g: 181, b: 62) : UIColor.lightGrayColor()
     }
 
 }

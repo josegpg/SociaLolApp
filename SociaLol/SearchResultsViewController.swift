@@ -17,14 +17,16 @@ class SearchResultsViewController: UIViewController {
     var rankedInfo: RankedInfo!
     var topChampions: [TopChampion]!
     
-    let brownColor = UIColor(red: 122/255.0, green: 111/255.0, blue: 102/255.0, alpha: 0.5)
+    let brownColor = UIColor(red: 25/255.0, green: 32/255.0, blue: 41/255.0, alpha: 0.5)
     let grayColor = UIColor(red: 34/255.0, green: 41/255.0, blue: 48/255.0, alpha: 1.0)
     
     @IBOutlet weak var resultsTableView: UITableView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        emptyLabel.hidden = !sectionsNames.isEmpty
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -57,11 +59,14 @@ class SearchResultsViewController: UIViewController {
         profile.rankedInfo = rankedInfo
         profile.topChampions = topChampions
         
+        SpecialActivityIndicator.sharedInstance().hide()
         profile.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(profile, animated: true)
     }
     
     func searchError(errorMsg: String) {
+        SpecialActivityIndicator.sharedInstance().hide()
+        
         // Notify the user about the error
         showGeneralAlert("Error", message: errorMsg, buttonTitle: "Ok")
     }
@@ -119,6 +124,7 @@ extension SearchResultsViewController: UITableViewDelegate {
         
         if let summoner = sections[indexPath.section][indexPath.row] as? Summoner {
         
+            SpecialActivityIndicator.sharedInstance().show(view, msg: "Fetching info...")
             RiotAPIClient.sharedInstance().getSummonerRecentMatches(summoner, successHandler: foundRecentMatches, errorHandler: searchError)
             
         } else if let champion = sections[indexPath.section][indexPath.row] as? Champion {

@@ -31,6 +31,7 @@
 		D14636BA1CC1FD5A003F99EA /* RecentActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14636B91CC1FD5A003F99EA /* RecentActivityViewController.swift */; };
 		D14636BC1CC2D240003F99EA /* ChampionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14636BB1CC2D240003F99EA /* ChampionListViewController.swift */; };
 		D15286581CC5E0FA0022C691 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15286571CC5E0FA0022C691 /* FriendListViewController.swift */; };
+		D152865A1CC731000022C691 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15286591CC731000022C691 /* ActivityIndicator.swift */; };
 		D157C84F1CA664C400059F8D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157C84E1CA664C400059F8D /* ImageCache.swift */; };
 		D17A777C1CAF7E550078B9B2 /* TopChampionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */; };
 		D17A777E1CAF82E80078B9B2 /* SummonerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */; };
@@ -95,6 +96,7 @@
 		D14636B91CC1FD5A003F99EA /* RecentActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentActivityViewController.swift; sourceTree = "<group>"; };
 		D14636BB1CC2D240003F99EA /* ChampionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionListViewController.swift; sourceTree = "<group>"; };
 		D15286571CC5E0FA0022C691 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		D15286591CC731000022C691 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D157C84E1CA664C400059F8D /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopChampionSummaryView.swift; sourceTree = "<group>"; };
 		D17A777D1CAF82E80078B9B2 /* SummonerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerProfileViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				D110F9DF1CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift */,
 				D17A777B1CAF7E550078B9B2 /* TopChampionSummaryView.swift */,
 				D110F9CB1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift */,
+				D15286591CC731000022C691 /* ActivityIndicator.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				D110F9CC1C9CBEEC002C8CA3 /* UIViewControllerExtension.swift in Sources */,
 				D17A777E1CAF82E80078B9B2 /* SummonerProfileViewController.swift in Sources */,
 				D110F9C61C9A31D7002C8CA3 /* LoL.swift in Sources */,
+				D152865A1CC731000022C691 /* ActivityIndicator.swift in Sources */,
 				D14636BA1CC1FD5A003F99EA /* RecentActivityViewController.swift in Sources */,
 				D110F9D01C9CFD1A002C8CA3 /* Champion.swift in Sources */,
 				D110F9E01CA65383002C8CA3 /* TaskCancelingCollectionViewCell.swift in Sources */,

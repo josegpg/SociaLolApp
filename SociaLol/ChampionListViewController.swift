@@ -16,10 +16,11 @@ class ChampionListViewController: UIViewController {
     var sectionNames: [String] = []
     var sectionIndex: [Character: Int] = [:]
     
-    let brownColor = UIColor(red: 122/255.0, green: 111/255.0, blue: 102/255.0, alpha: 0.5)
+    let brownColor = UIColor(red: 25/255.0, green: 32/255.0, blue: 41/255.0, alpha: 0.5)
     let grayColor = UIColor(red: 34/255.0, green: 41/255.0, blue: 48/255.0, alpha: 1.0)
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +33,21 @@ class ChampionListViewController: UIViewController {
     }
     
     func getChampionList() {
+        SpecialActivityIndicator.sharedInstance().show(view, msg: "Downloading info")
         RiotAPIClient.sharedInstance().getAllChampions(foundChampions, errorHandler: searchError)
     }
     
     func foundChampions(champions: [Champion]) {
+        SpecialActivityIndicator.sharedInstance().hide()
         processChampions(champions)
         
+        emptyLabel.hidden = !champions.isEmpty
         tableView.reloadData()
     }
     
     func searchError(errorMsg: String) {
         // Notify the user about the error
+        SpecialActivityIndicator.sharedInstance().hide()
         showGeneralAlert("Error", message: errorMsg, buttonTitle: "Ok")
     }
     

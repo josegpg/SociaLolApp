@@ -13,16 +13,18 @@ import EZSwiftExtensions
 class FriendListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     var allFriends: [Summoner] = []
     var sortedFriends: [Summoner] = []
+    var sortedFriendsClones: [Summoner] = []
     var friendsByRegion: [String: [Int]] = [:]
     var rankedInfoById: [Int: RankedInfo] = [:]
     
     var recentMatches: [RecentMatch]!
     var topChampions: [TopChampion]!
     
-    let brownColor = UIColor(red: 122/255.0, green: 111/255.0, blue: 102/255.0, alpha: 0.5)
+    let brownColor = UIColor(red: 25/255.0, green: 32/255.0, blue: 41/255.0, alpha: 0.5)
     let grayColor = UIColor(red: 34/255.0, green: 41/255.0, blue: 48/255.0, alpha: 1.0)
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -47,6 +49,7 @@ class FriendListViewController: UIViewController {
             friendsByRegion[summoner.region]?.append(Int(summoner.id))
         }
         
+        SpecialActivityIndicator.sharedInstance().show(view, msg: "Loading info...")
         getInfoFromRegionAtIndex(0)
     }
     
@@ -66,10 +69,13 @@ class FriendListViewController: UIViewController {
         
         if curIndex == LoL.Region.allValues.count {
             ez.runThisInMainThread { () -> Void in
+                SpecialActivityIndicator.sharedInstance().hide()
+                
                 self.sortedFriends = self.allFriends.sort { summoner1, summoner2 in
                     return self.rankedInfoById[Int(summoner1.id)]!.getSoloQueuePoints() > self.rankedInfoById[Int(summoner2.id)]!.getSoloQueuePoints()
                 }
-                
+                self.sortedFriendsClones = RiotAPIClient.sharedInstance().getSummonersInTemporaryContext(self.sortedFriends)
+                self.emptyLabel.hidden = !self.sortedFriends.isEmpty
                 self.tableView.reloadData()
             }
         }
@@ -104,6 +110,7 @@ class FriendListViewController: UIViewController {
         profile.rankedInfo = rankedInfoById[Int(summoner.id)]
         profile.topChampions = topChampions
         
+        SpecialActivityIndicator.sharedInstance().hide()
         profile.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(profile, animated: true)
     }
@@ -121,12 +128,12 @@ class FriendListViewController: UIViewController {
 extension FriendListViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sortedFriends.count
+        return sortedFriendsClones.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("summonerCell") as! SummonerTableViewCell
-        let summoner = sortedFriends[indexPath.row]
+        let summoner = sortedFriendsClones[indexPath.row]
         cell.backgroundColor = indexPath.row % 2 == 0 ? brownColor : grayColor
         cell.setUp(summoner)
         cell.setUpRankedInfo(rankedInfoById[Int(summoner.id)]!)
@@ -141,7 +148,8 @@ extension FriendListViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        RiotAPIClient.sharedInstance().getSummonerRecentMatches(sortedFriends[indexPath.row], successHandler: foundRecentMatches, errorHandler: searchError)
+        SpecialActivityIndicator.sharedInstance().show(view, msg: "Fetching info...")
+        RiotAPIClient.sharedInstance().getSummonerRecentMatches(sortedFriendsClones[indexPath.row], successHandler: foundRecentMatches, errorHandler: searchError)
     }
     
 }

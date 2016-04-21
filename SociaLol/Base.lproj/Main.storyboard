@@ -132,9 +132,16 @@
                                     <outlet property="delegate" destination="lEC-l1-0YU" id="d33-uN-tWg"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No champions found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ru-bs-wux">
+                                <rect key="frame" x="-0.5" y="81" width="375" height="537"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.16078431369999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="8Ru-bs-wux" firstAttribute="centerY" secondItem="Ms8-qH-HQl" secondAttribute="centerY" id="GZt-xD-b5a"/>
                             <constraint firstItem="ng5-by-ju0" firstAttribute="top" secondItem="YHQ-82-PFf" secondAttribute="topMargin" id="Men-ge-ucG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ng5-by-ju0" secondAttribute="trailing" id="aJw-WC-UFa"/>
                             <constraint firstItem="Ms8-qH-HQl" firstAttribute="top" secondItem="ng5-by-ju0" secondAttribute="bottom" id="eqx-I3-dUp"/>
@@ -144,7 +151,10 @@
                             <constraint firstAttribute="trailing" secondItem="Ms8-qH-HQl" secondAttribute="trailing" id="k5J-ab-7xY"/>
                             <constraint firstItem="Ms8-qH-HQl" firstAttribute="leading" secondItem="YHQ-82-PFf" secondAttribute="leading" id="kv6-KK-AxG"/>
                             <constraint firstItem="ng5-by-ju0" firstAttribute="top" secondItem="YJv-75-PkC" secondAttribute="bottom" id="lEz-Jw-dKp"/>
+                            <constraint firstItem="8Ru-bs-wux" firstAttribute="height" secondItem="Ms8-qH-HQl" secondAttribute="height" id="nnh-4B-LXv"/>
+                            <constraint firstItem="8Ru-bs-wux" firstAttribute="centerX" secondItem="Ms8-qH-HQl" secondAttribute="centerX" id="qio-pE-XnZ"/>
                             <constraint firstAttribute="trailing" secondItem="ng5-by-ju0" secondAttribute="trailing" id="xTy-Ya-YES"/>
+                            <constraint firstItem="8Ru-bs-wux" firstAttribute="width" secondItem="Ms8-qH-HQl" secondAttribute="width" id="yjA-5C-i8U"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -158,6 +168,7 @@
                     <navigationItem key="navigationItem" title="Friends Ranking" id="m9v-cI-5qx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="emptyLabel" destination="8Ru-bs-wux" id="AFj-ti-dZI"/>
                         <outlet property="tableView" destination="Ms8-qH-HQl" id="jel-lj-MR4"/>
                     </connections>
                 </viewController>
@@ -517,15 +528,27 @@
                                     <outlet property="delegate" destination="lHX-2v-pB6" id="l6n-Ba-Vbz"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDm-Vt-PQJ">
+                                <rect key="frame" x="-0.5" y="81" width="375" height="536"/>
+                                <string key="text">No matches found.
+Search and follow some friends</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.097955594930000001" green="0.12496359849999999" blue="0.1615761446" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="LDm-Vt-PQJ" firstAttribute="height" secondItem="mJ2-7n-pIA" secondAttribute="height" id="8jQ-em-AdM"/>
                             <constraint firstItem="mJ2-7n-pIA" firstAttribute="top" secondItem="Cfq-bM-yW4" secondAttribute="bottom" id="BaX-jL-gQt"/>
                             <constraint firstItem="mJ2-7n-pIA" firstAttribute="leading" secondItem="vJb-6J-QKA" secondAttribute="leading" id="Qdh-mz-he1"/>
+                            <constraint firstItem="LDm-Vt-PQJ" firstAttribute="centerY" secondItem="mJ2-7n-pIA" secondAttribute="centerY" id="SBe-Hm-15n"/>
                             <constraint firstAttribute="topMargin" secondItem="Cfq-bM-yW4" secondAttribute="top" id="W1P-JS-oSK"/>
                             <constraint firstAttribute="trailing" secondItem="Cfq-bM-yW4" secondAttribute="trailing" id="am5-cW-Efr"/>
                             <constraint firstItem="Cfq-bM-yW4" firstAttribute="leading" secondItem="vJb-6J-QKA" secondAttribute="leading" id="bE0-wA-yTb"/>
+                            <constraint firstItem="LDm-Vt-PQJ" firstAttribute="centerX" secondItem="mJ2-7n-pIA" secondAttribute="centerX" id="h2G-kG-L1V"/>
                             <constraint firstAttribute="trailing" secondItem="mJ2-7n-pIA" secondAttribute="trailing" id="hnp-25-Fyj"/>
+                            <constraint firstItem="LDm-Vt-PQJ" firstAttribute="width" secondItem="mJ2-7n-pIA" secondAttribute="width" id="mhD-x6-MVT"/>
                             <constraint firstAttribute="bottomMargin" secondItem="mJ2-7n-pIA" secondAttribute="bottom" constant="50" id="t7V-xZ-bhi"/>
                         </constraints>
                     </view>
@@ -533,6 +556,7 @@
                     <navigationItem key="navigationItem" title="Recent Activity" id="z8r-HY-FQ2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="emptyLabel" destination="LDm-Vt-PQJ" id="nyH-jc-88Y"/>
                         <outlet property="tableView" destination="mJ2-7n-pIA" id="uzb-gC-gfc"/>
                     </connections>
                 </viewController>
@@ -786,22 +810,33 @@
                                     <outlet property="delegate" destination="ZDQ-Md-qoB" id="Jxk-2q-lfQ"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No friend summoners found. Search and follow some friends" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVs-ES-Zq8">
+                                <rect key="frame" x="-0.5" y="81" width="375" height="536"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.16078431369999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="f9M-hg-rqq" firstAttribute="top" secondItem="LxM-cb-YMt" secondAttribute="bottom" id="1wl-qw-nud"/>
                             <constraint firstItem="Ys2-2O-ASc" firstAttribute="top" secondItem="Mtz-E7-uj4" secondAttribute="topMargin" id="Iro-pd-rYk"/>
+                            <constraint firstItem="eVs-ES-Zq8" firstAttribute="centerY" secondItem="f9M-hg-rqq" secondAttribute="centerY" id="JbJ-mL-aTB"/>
                             <constraint firstItem="f9M-hg-rqq" firstAttribute="leading" secondItem="Mtz-E7-uj4" secondAttribute="leading" id="Ycc-Cx-cEJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="f9M-hg-rqq" secondAttribute="bottom" constant="50" id="Zyk-kM-HuB"/>
+                            <constraint firstItem="eVs-ES-Zq8" firstAttribute="width" secondItem="f9M-hg-rqq" secondAttribute="width" id="giC-7w-JBh"/>
                             <constraint firstAttribute="trailing" secondItem="Ys2-2O-ASc" secondAttribute="trailing" id="lmQ-uP-t1f"/>
                             <constraint firstItem="Ys2-2O-ASc" firstAttribute="leading" secondItem="Mtz-E7-uj4" secondAttribute="leading" id="nW0-lf-nLg"/>
                             <constraint firstAttribute="trailing" secondItem="f9M-hg-rqq" secondAttribute="trailing" id="tou-yh-MXZ"/>
+                            <constraint firstItem="eVs-ES-Zq8" firstAttribute="height" secondItem="f9M-hg-rqq" secondAttribute="height" id="yz0-8A-5sf"/>
+                            <constraint firstItem="eVs-ES-Zq8" firstAttribute="centerX" secondItem="f9M-hg-rqq" secondAttribute="centerX" id="zPw-2H-I6T"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Friends" image="ranking" id="DIN-vG-BqH"/>
                     <navigationItem key="navigationItem" title="Friend Summoners" id="OwR-DJ-h4J"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="emptyLabel" destination="eVs-ES-Zq8" id="hXg-Pf-hR4"/>
                         <outlet property="tableView" destination="f9M-hg-rqq" id="EGT-RA-Y9K"/>
                     </connections>
                 </viewController>
@@ -857,7 +892,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbo-LI-V1K">
-                                        <rect key="frame" x="95" y="75" width="224" height="30"/>
+                                        <rect key="frame" x="95" y="75" width="196" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="272" id="4Uo-AA-qUB"/>
                                             <constraint firstAttribute="height" constant="30" id="mVu-F9-mFL"/>
@@ -892,15 +927,24 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiA-7F-Q68">
-                                        <rect key="frame" x="319" y="70" width="42" height="40"/>
+                                        <rect key="frame" x="291" y="70" width="70" height="40"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="2jd-it-qQG"/>
-                                            <constraint firstAttribute="width" constant="42" id="AIF-4m-Vid"/>
+                                            <constraint firstAttribute="width" constant="70" id="AIF-4m-Vid"/>
                                         </constraints>
-                                        <state key="normal" image="star_empty"/>
-                                        <state key="selected" image="star_full"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Follow">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" title="Following">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="addToFavoritesAction:" destination="IZE-ps-fvp" eventType="touchUpInside" id="y0g-Az-LaF"/>
+                                            <action selector="addToFavoritesAction:" destination="IZE-ps-fvp" eventType="touchUpInside" id="1rs-4w-dLd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1146,19 +1190,29 @@
                                                     <rect key="frame" x="100" y="28" width="80" height="80"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No champions info found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-jm-lL7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="120"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.1333333333" green="0.16078431369999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="DKW-Xw-pZf" firstAttribute="top" secondItem="jn7-Co-phu" secondAttribute="top" constant="28" id="30g-q1-err"/>
                                                 <constraint firstItem="CWV-VV-uqd" firstAttribute="top" secondItem="jn7-Co-phu" secondAttribute="top" constant="28" id="6Pg-8B-Ns1"/>
                                                 <constraint firstItem="kZo-TC-rRo" firstAttribute="leading" secondItem="jn7-Co-phu" secondAttribute="leading" constant="4" id="AkV-jr-EtF"/>
+                                                <constraint firstItem="2i4-jm-lL7" firstAttribute="centerY" secondItem="jn7-Co-phu" secondAttribute="centerY" id="EDV-0v-N9D"/>
                                                 <constraint firstItem="CWV-VV-uqd" firstAttribute="leading" secondItem="s2p-g5-j0f" secondAttribute="trailing" id="ILR-vC-ydf"/>
                                                 <constraint firstItem="Kru-8N-37E" firstAttribute="centerX" secondItem="jn7-Co-phu" secondAttribute="centerX" constant="-40" id="Kh3-ai-SJA"/>
+                                                <constraint firstItem="2i4-jm-lL7" firstAttribute="width" secondItem="jn7-Co-phu" secondAttribute="width" id="M7l-F6-O8b"/>
                                                 <constraint firstItem="s2p-g5-j0f" firstAttribute="top" secondItem="jn7-Co-phu" secondAttribute="top" constant="28" id="PaS-wj-gwb"/>
                                                 <constraint firstAttribute="height" constant="120" id="Ysk-eD-ozF"/>
                                                 <constraint firstItem="Kru-8N-37E" firstAttribute="top" secondItem="jn7-Co-phu" secondAttribute="top" constant="28" id="fXX-HZ-EdN"/>
                                                 <constraint firstItem="kZo-TC-rRo" firstAttribute="top" secondItem="jn7-Co-phu" secondAttribute="top" id="gXM-lM-oPM"/>
                                                 <constraint firstItem="s2p-g5-j0f" firstAttribute="leading" secondItem="Kru-8N-37E" secondAttribute="trailing" id="iyt-Zx-jeH"/>
+                                                <constraint firstItem="2i4-jm-lL7" firstAttribute="centerX" secondItem="jn7-Co-phu" secondAttribute="centerX" id="kPN-gZ-aLI"/>
+                                                <constraint firstItem="2i4-jm-lL7" firstAttribute="height" secondItem="jn7-Co-phu" secondAttribute="height" id="mPA-Kn-bGp"/>
                                                 <constraint firstItem="Kru-8N-37E" firstAttribute="leading" secondItem="DKW-Xw-pZf" secondAttribute="trailing" id="yq6-2l-4G7"/>
                                             </constraints>
                                         </view>
@@ -1609,7 +1663,8 @@
                     <connections>
                         <outlet property="assistsLabel" destination="5wZ-lZ-PgA" id="wuF-IA-m92"/>
                         <outlet property="deathsLabel" destination="aur-fr-iqB" id="4b2-19-oRp"/>
-                        <outlet property="favButton" destination="iiA-7F-Q68" id="cts-tV-Rnf"/>
+                        <outlet property="emptyTopChampion" destination="2i4-jm-lL7" id="TvZ-wW-sOT"/>
+                        <outlet property="favButton" destination="iiA-7F-Q68" id="lRc-ei-Vpb"/>
                         <outlet property="goldLabel" destination="LLd-ia-6M5" id="HsU-1x-30j"/>
                         <outlet property="killsLabel" destination="xVs-rO-tx9" id="i6w-R9-AnH"/>
                         <outlet property="minionsLabel" destination="43m-ou-Tiv" id="hOR-x6-aOS"/>
@@ -2285,13 +2340,23 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Champions or summoners not found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m98-Th-kwG">
+                                <rect key="frame" x="-0.5" y="55" width="375" height="612"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.16078431369999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bxk-Y1-DMY" firstAttribute="leading" secondItem="hlH-Ak-wjW" secondAttribute="leading" id="0bJ-c3-KiT"/>
+                            <constraint firstItem="m98-Th-kwG" firstAttribute="centerX" secondItem="bxk-Y1-DMY" secondAttribute="centerX" id="2MT-Zj-PVU"/>
+                            <constraint firstItem="m98-Th-kwG" firstAttribute="centerY" secondItem="bxk-Y1-DMY" secondAttribute="centerY" id="9aK-Dz-rec"/>
+                            <constraint firstItem="m98-Th-kwG" firstAttribute="height" secondItem="bxk-Y1-DMY" secondAttribute="height" id="9o6-YK-lBp"/>
                             <constraint firstItem="bxk-Y1-DMY" firstAttribute="top" secondItem="xIh-ha-ARe" secondAttribute="bottom" constant="-20" id="C4I-2C-Jt2"/>
                             <constraint firstAttribute="trailing" secondItem="xIh-ha-ARe" secondAttribute="trailing" id="I6t-Ht-2sa"/>
                             <constraint firstItem="xIh-ha-ARe" firstAttribute="leading" secondItem="hlH-Ak-wjW" secondAttribute="leading" id="MnF-vC-5d8"/>
+                            <constraint firstItem="m98-Th-kwG" firstAttribute="width" secondItem="bxk-Y1-DMY" secondAttribute="width" id="Ow8-PX-UKL"/>
                             <constraint firstItem="g2M-GX-BDE" firstAttribute="top" secondItem="bxk-Y1-DMY" secondAttribute="bottom" id="V4s-jH-6ke"/>
                             <constraint firstItem="xIh-ha-ARe" firstAttribute="top" secondItem="zad-wg-2pb" secondAttribute="bottom" constant="-20" id="VqT-9g-3e6"/>
                             <constraint firstAttribute="trailing" secondItem="bxk-Y1-DMY" secondAttribute="trailing" id="mn2-Xk-Pug"/>
@@ -2299,6 +2364,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="emptyLabel" destination="m98-Th-kwG" id="IWa-wW-stQ"/>
                         <outlet property="resultsTableView" destination="bxk-Y1-DMY" id="dyS-Y9-zj3"/>
                     </connections>
                 </viewController>
@@ -2322,7 +2388,5 @@
         <image name="search" width="30" height="30"/>
         <image name="search-bg" width="332" height="613"/>
         <image name="searchResults-header" width="1914" height="200"/>
-        <image name="star_empty" width="42" height="40"/>
-        <image name="star_full" width="42" height="40"/>
     </resources>
 </document>
