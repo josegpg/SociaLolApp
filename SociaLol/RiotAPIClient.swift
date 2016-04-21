@@ -378,7 +378,7 @@ class RiotAPIClient: NSObject {
                     errorHandler(errorMsg: "Summoner fetch info failed")
                     
                 } else {
-                    print(json)
+                    
                     var rankedInfos: [RankedInfo] = []
                     for summoner in summoners {
                         rankedInfos.append( RankedInfo(dictionary: json[String(summoner)], summonerId: String(summoner)) )
