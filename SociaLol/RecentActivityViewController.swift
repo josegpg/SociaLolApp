@@ -45,7 +45,10 @@ class RecentActivityViewController: UIViewController {
         finishedRequests = 0
         shownError = false
         
-        SpecialActivityIndicator.sharedInstance().show(view, msg: "Loading matches")
+        if favoriteSummoners.count > 0 {
+            SpecialActivityIndicator.sharedInstance().show(view, msg: "Loading matches")
+        }
+        
         for summoner in favoriteSummoners {
             RiotAPIClient.sharedInstance().getSummonerRecentMatches(summoner, successHandler: foundRecentMatches, errorHandler: searchError)
         }
@@ -75,6 +78,8 @@ class RecentActivityViewController: UIViewController {
         finishedRequests += 1
         shownError = true
         msgError = errorMsg
+        
+        checkQueryFinished()
     }
     
     func checkQueryFinished() {

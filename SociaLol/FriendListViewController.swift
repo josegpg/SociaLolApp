@@ -116,6 +116,19 @@ class FriendListViewController: UIViewController {
     }
     
     func searchError(errorMsg: String) {
+        SpecialActivityIndicator.sharedInstance().hide()
+        
+        ez.runThisInMainThread { () -> Void in
+            if self.sortedFriends.isEmpty && !self.allFriends.isEmpty {
+                self.sortedFriends = self.allFriends.sort { summoner1, summoner2 in
+                    return summoner1.name < summoner2.name
+                }
+                self.sortedFriendsClones = RiotAPIClient.sharedInstance().getSummonersInTemporaryContext(self.sortedFriends)
+                self.emptyLabel.hidden = !self.sortedFriends.isEmpty
+                self.tableView.reloadData()
+            }
+        }
+        
         // Notify the user about the error
         showGeneralAlert("Error", message: errorMsg, buttonTitle: "Ok")
     }
@@ -136,8 +149,8 @@ extension FriendListViewController: UITableViewDataSource {
         let summoner = sortedFriendsClones[indexPath.row]
         cell.backgroundColor = indexPath.row % 2 == 0 ? brownColor : grayColor
         cell.setUp(summoner)
-        cell.setUpRankedInfo(rankedInfoById[Int(summoner.id)]!)
-        
+        cell.setUpRankedInfo(rankedInfoById[Int(summoner.id)])
+    
         return cell
     }
     

@@ -61,8 +61,8 @@ class SummonerTableViewCell : TaskCancelingTableViewCell {
         summonerImage.image = profileImage
     }
     
-    func setUpRankedInfo(rankedInfo: RankedInfo) {
-        if let soloInfo = rankedInfo.soloLeagueInfo {
+    func setUpRankedInfo(rankedInfo: RankedInfo?) {
+        if let soloInfo = rankedInfo?.soloLeagueInfo {
             rankedBadge.image = UIImage(named: soloInfo.getLeagueImageTitle())
             rankedNameLabel.text = soloInfo.getLeagueCompleteName()
             rankedPtsLabel.text = "\(soloInfo.leaguePoints) Pts"
